@@ -10,9 +10,9 @@ $(document).ready(function() {
          HideModal();
     })
     $('#ElementModal .JS_Reset').click(function() {
-        Iam=$(this);
+        // Iam=$(this);
         HideModal();
-        ResetModal(Iam);
+        ResetModal($(this));
     })
     function HideModal() {$('#ElementModal').modal('hide');}
     //КОНЕЦ закрытие модального окна
@@ -152,21 +152,18 @@ $(document).ready(function() {
 
 //=====================работа кнопок на экране для выбора значения атрибута элемента====
 $(document).ready(function(){
-    let Iam;
 
     $('#GoeModal .JS_ButtonModal').click(function() {
-        Iam=$(this);
-        AddRemove_Active();
+        AddRemove_Active($(this));
     })
 
     $('#ElementModal .JS_ButtonModal').click(function() {
-        Iam=$(this);
-        AddRemove_Active();
-        Hide_HeadersSections(Iam);
+        AddRemove_Active($(this));
+        Hide_HeadersSections($(this));
         ShowHeader();
     })
 
-    function AddRemove_Active() {
+    function AddRemove_Active(Iam) {
         Iam.closest('.JS_Section').find('.JS_ButtonModal').each(function(index){
             jQuery(this).removeClass('active activeColor');
         })
@@ -179,21 +176,18 @@ $(document).ready(function(){
 //========================добавление/удаление прыжка в модальном окне==================
     //ДОЛЖНО БЫТЬ ВЫШЕ @разблокировка кнопок "добавить прыжок"@
 $(document).ready(function() {
-    let section,
-        Iam;
+    let section;
 
       $('#ElementModal .JS_AddJump').click(function() {
-          Iam=$(this);
           $(this).closest('.JS_Section-Table').find('.JS_Section-El:not(.active):first').addClass('active splash');
-          Hide_HeadersSections(Iam);
+          Hide_HeadersSections($(this));
           ShowHeader();
       })
       $('#ElementModal .JS_RemoveJump').click(function() {
-          Iam=$(this);
-          section=Iam.closest('.JS_Section-Table').find('.JS_Section-El.active:last')
+          section=$(this).closest('.JS_Section-Table').find('.JS_Section-El.active:last')
           ResetButtons(section);
           section.removeClass('active splash').addClass('hide');
-          Hide_HeadersSections(Iam);
+          Hide_HeadersSections($(this));
           ShowHeader();
       })
 })
@@ -214,7 +208,7 @@ $(document).ready(function () {
         $('#jumps .JS_ButtonModal[value="F"], #jumps .JS_ButtonModal[value="Lz"]').click(function() {
             section.find('.JS_Edge').prop('disabled', false);
         })
-        $('#jumps .JS_ButtonModal:not(.JS_ButtonModal[value="F"], #jumps .JS_ButtonModal[value="Lz"])').click(function() {
+        $('#jumps .JS_ButtonModal:not(.JS_ButtonModal[value="F"], .JS_ButtonModal[value="Lz"])').click(function() { //было так: #jumps .JS_ButtonModal[value="Lz"]
             button=section.find('.JS_Edge');
             button.removeClass('active activeColor');
             button.prop('disabled', true);
@@ -275,10 +269,8 @@ $(document).ready(function () {
 
             function CheckAmountLinesHide() {
                 amount=$(Iam).closest('.JS_Section-Table').find('.JS_Section-El.active').length;
-
                 return;
             }
-
         })
         //===КОНЕЦ блокировка/разблокировка кнопок "добавить прыжок" и "удалить прыжок"
 
