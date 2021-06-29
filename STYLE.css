@@ -1,0 +1,22 @@
+.wrap{
+    margin: 20px;
+    padding: 5px;
+    overflow: hidden;
+    border: 2px solid black;
+    text-align: center;
+}
+.button{
+    width: 50px;
+}
+.contaner{
+    padding: 5px;
+    border: 1px solid green;
+    position:absolute;
+    top: -10000px;
+    transition: transform 1s ease-out;
+ }
+.contaner.active {
+    position:relative;
+    top:-50px;
+    transform: translateY(50px);
+}

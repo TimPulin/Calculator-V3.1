@@ -1,0 +1,685 @@
+
+body{
+    background: #f3f4f8;
+    font-size: 18px;
+}/*f3f4f8*/
+
+/*работа с таблицами*/
+@media (max-width:575px) {
+    /*.table{font-size: 15px !important;}*/
+}
+table {box-sizing: border-box;}
+table.CSStableGoe td {text-align:left;}
+th,td{text-align: center;}
+
+/*КОНЕЦ работа с таблицами*/
+
+
+/*body{background:#e0e0e0;}*/
+.bg-body{background: #f3f4f8;}
+.bg-nav{background:#66A1D2;} /*цвет навигационной панели*/ /*6666ff*/
+.bg-header{background: linear-gradient(to bottom right, #fff   35%, #66A1D2);} /*#66A1D2*/
+/*.bg-header{background:#66A1D2;}*/
+.bg-firstrow{background:#8fb7d9;}
+.bg-header_gradient{background: linear-gradient(to top left, #66A1D2 50%, #fff);}
+.bg-bread_crumbs{background: #f3f4f8 !important;}
+
+@media (max-width:991px){
+    .padding_0_md{
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+
+@media (max-width:1500px) {
+	h1{font-size: 30px !important;}
+	h2 {font-size:28px !important;}
+	h3{font-size:24px !important;}
+	h4{font-size:20px !important;}
+}
+@media (max-width:992px) {
+	h1{font-size: 30px;}
+	td {padding: 10px !important;}
+}
+@media (max-width:767px) {
+	h1 {font-size: 24px !important;}
+	h2 {font-size:24px !important;}
+	h3 {font-size: 20px !important;}
+	h4{font-size:18px !important;}
+	td {padding: 5px !important;}
+}
+
+h1{
+    text-align:center;
+    margin:1rem!important;
+}
+
+h1, h2 {font-family: serif;}
+
+/*Работа с ссылками*/
+.fontLink{color:#9a9d9e;}
+a{outline:none !important;
+	text-decoration:none !important;}
+a:hover{color:#ffcc00 !important;}
+/*КОНЕЦ Работа с ссылками*/
+
+.breadcrumb{
+    margin: 0 !important;
+    font-size: 15px !important;
+}
+@media (max-width:575px) {
+    .breadcrumb{font-size: 12px !important;}
+}
+
+/*стили вывода блока предпоказа*/
+.box_review h2{
+    font-size:24px !important;
+    font-weight: 500;
+    text-align: center;
+}
+.box_review img{
+    width: 100%;
+    height:auto;
+    border-radius: 5px;
+}
+
+.review .box_review {
+    margin: 10px auto;
+    max-width: 400px;
+    text-align: center;
+    line-height: 1;
+    border-radius: 5px;
+}
+.review .box_review a{
+    margin:0 ;
+    font-family: serif !important;
+    font-size: 20px !important;
+    color: black;
+}
+.review .box_review a:hover{color: black !important;}
+.review .box_review .body {/*min-height: 100px;*/ padding: 5px; }
+
+/*КОНЕЦ стили вывода блока предпоказа*/
+
+/*цвет якорей #3415B0*/
+
+/*стили для отладки блоков*/
+/* div{border: 1px solid #999;}*/
+.box{border:1px solid #000;}
+.coll {border: 1px solid #ccc;}
+.floatR{float:right;}
+.hide {display: none;}
+/*КОНЕЦ стили для отладки блоков*/
+
+/*стили на разные случаи*/
+li.list_of_element {list-style-type: circle}
+.un{text-decoration:underline;}
+	/*изображение на всю ширину контейнера*/
+.width100 {
+	width:100%;
+	height:auto;
+}
+.backgroundBlack{background:#333;}
+.backgroundGrey{background: #f3f4f8;}
+.clearfix:after {
+  content: '.';
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+/*КОНЕЦ стили на разные случаи*/
+
+
+
+
+ul{
+	padding-top: 0;
+	margin-top: 0;
+}
+
+input[type="checkbox"]{
+	width: 15px;
+	  height: 15px;
+	vertical-align: middle;
+	margin: 0 5px;
+	cursor: pointer;}
+
+/*работа с select*/
+select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	outline:none;
+	padding:0 3px;
+	background: none;
+	border-radius:5px;
+	border: 2px solid #666;
+	color:#333;}
+select:active{
+	box-shadow:1px 1px 1px 1px #999 inset, -1px -1px 1px 1px #fff inset;}
+select:disabled{
+	border: 2px solid #999;
+	color:#999;}
+select::-ms-expand {display: none;}
+
+.noneSelect{
+	user-select:none;
+	-ms-user-select:none;
+	-moz-user-select:none;
+	-khtml-user-select:none;
+	-webkit-user-select:none;}
+/*КОНЕЦ работа с select*/
+
+
+
+
+/*для блока card в rules-fs.html*/
+.card h3{font-size:14pt !important;}
+.card h4{
+	font-size:14pt !important;
+	font-weight:;
+}
+/*КОНЕЦ для блока card в rules-fs.html*/
+
+/*работа с блоком для размещения изображения с подписью*/
+.sign {
+    float: right; /* Выравнивание по правому краю */
+    /*border: 1px solid #333;  Параметры рамки
+    padding: 5px; */
+   /* margin: 10px 0 5px 5px;  Отступы вокруг */
+    background: #f0f0f0; /* Цвет фона */
+}
+   .sign figcaption {
+    margin: 0 auto 5px; /* Отступы вокруг абзаца */
+}
+/*КОНЕЦ работа с блоком для размещения изображения с подписью*/
+
+/*для блока рекламы Яндекса*/
+.text_align_center{ text-align:center;}
+.yandex_rtb {
+    display: inline-block;
+    margin: 10px auto;}
+/*КОНЕЦ для блока рекламы Яндекса*/
+
+
+/*Для всплывающего окна сверху-сбоку от наведения*/
+.poster{
+	visibility: hidden;
+}
+.poster span{
+	visibility:visible;
+	color:#3415B0;
+}
+.poster:hover {visibility:visible;}
+.poster div {
+	position: fixed;
+	z-index: 10;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	width: 220px;
+	height:220px;
+	margin: auto;
+	padding:10px;
+	background:#f3f3f3;
+	-moz-box-shadow:0 5px 5px rgba(0,0,0,0.3);
+    -webkit-box-shadow:0 5px 5px rgba(0,0,0,0.3);
+	box-shadow:0 5px 5px rgba(0,0,0,0.3);
+}
+/*КОНЕЦ Для всплывающего окна сверху-сбоку от наведения*/
+
+/*выделения абзаца восклицательными знаками */
+/*юникод перевернутого восклицательного знака &#161; */
+.signWarning{
+	font-size:20px;
+	font-weight:600;
+	color:red;
+}
+/*КОНЕЦ выделения абзаца восклицательными знаками */
+
+/*блок определений. изначально - для convetions.html*/
+.conventionBlock{
+	/*border-left:2px solid #8697bf;*/
+	margin-left:25px;
+	margin-top:20px;
+	padding:0px 15px;
+
+
+	/*градиентный фон
+	background: #bac8df;
+background: -moz-radial-gradient(center, ellipse cover, #bac8df, #f3f4f8);
+background: -webkit-linear-gradient(left, #bac8df, #f3f4f8);
+background: -o-linear-gradient(left, #bac8df, #f3f4f8);
+background: -ms-linear-gradient(left, #bac8df, #f3f4f8);*/
+}
+.conventionBlock h3{
+	display:inline;
+	font-size:18px !important;
+}
+.conventionBlock .conventionLetter{
+	font-size:20px;
+	font-weight:600;
+	border: 1px solid #ccc;
+	border-radius:5px;
+	background:#fff;
+	padding:0px 5px;
+}
+/*КОНЕЦ блок определений*/
+
+
+
+
+a{
+	text-decoration:none !important;
+	outline:none !important;
+}
+
+/*---------------------------СТИЛИ ПАНЕЛИ НАВИГАЦИИ-----------------------------------------*/
+/*стили для панели навигации*/
+                                 /*цвета ссылок в навигационной панели для больших экранов*/
+nav a{
+	color:#012442 !important; /*000099*/
+	display: block;
+    padding: 14px 16px;
+}
+nav a:hover{
+	color:#66A1D2 !important;/*6666ff*/
+	background:#012442;/*000099*/
+}
+nav a.active{
+    color:#66A1D2 !important;
+    background:#012442;
+}
+                                  /*цвета ссылок в навигационной панели для малых экранов*/
+@media (min-width:200px) and (max-width:991px){
+    nav .active{
+        color:#66A1D2;
+    	background:#012442;
+    }
+    nav a{font-size: 15px !important;}
+}
+nav li {list-style-type: none;}
+nav ul.nav_menu{padding: 0; margin: 0;}
+
+
+@media(min-width:992px){
+    nav .nav_menu{border-top: 2px solid #e0e0e0;}
+    nav .nav_menu>li{display: inline-block;}
+}
+@media(max-width:991px){
+    nav .nav_menu>li{border-top: 1px solid #e0e0e0;}
+}
+
+@media (min-width:200px) and (max-width:991px){
+	nav .hide_forSmScreen{display:none;}
+    nav .show_forSmScreen{display: block !important;}
+}
+
+/*стили для маленьких экранов панели навигации*/
+.button_open_menu {
+	display:block;
+	width: 100%;
+	border:none;
+    border-top: 2px solid #e0e0e0;
+	margin: 0 auto;
+	padding: 14px 10px;
+	color: #2e0571;                /*цвет бургера навигационной панели на малых экранах*/
+	font-size: 20px;
+	box-sizing: border-box;
+}
+.button_open_menu:before {
+	content:"☰ ";
+	margin-right: 10px;
+}
+@media (max-width:1500px){
+	.button_open_menu{display:none !important;}
+}
+@media (max-width: 991px) {
+    .button_open_menu{display:block !important;}
+}
+/*КОНЕЦ стили для маленьких экранов панели навигации*/
+
+/*стили выпадающего меню панели навигации*/
+@media (min-width:992px){
+    nav .dropdown:hover .dropdown_content {
+        display:block;
+    }
+}
+
+nav .dropdown_content{
+	display:none;
+	position: absolute;
+	min-width: 250px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	margin-top:0px;
+	padding: 0px;
+    z-index: 1;
+	background-color: rgba(200, 200, 200, 0.9);
+    box-sizing: border-box;
+}
+@media (max-width:991px){
+    .dropdown_content{
+        position: static;
+        width:100%;
+    }
+}
+nav .dropdown_content a{
+	display: block;
+    width:100%;
+    box-sizing: border-box;
+}
+@media (max-width:1500px){
+    nav .dropdown_content {position: absolute;}
+}
+@media (min-width:200px) and (max-width:991px){
+    nav .dropdown_content{
+        position:static;
+
+     }
+
+}
+/*КОНЕЦ стили выпадающего списка навигационной панели*/
+
+/*стили для работы выпадающего меню на малых экранах*/
+
+.dropdown_arrow {display:none !important;}
+@media (max-width:991px) {
+    nav .dropdown{
+        display: inline-flex;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: space-between;
+     }
+    nav .dropdown_category{flex-grow: 100;}
+    nav .dropdown_arrow{
+        display:inline-block !important;
+        height: 52px !important;
+        margin-right: 1px;
+        border-left: 1px solid #e0e0e0; /* e0e0e0 000099;*/
+        border-right: 1px solid #e0e0e0;
+        border-radius: 5px;
+    }
+
+    /* nav .dropdown_arrow:hover{
+         color:#000099;
+         background:inherit;
+     }*/
+    nav .dropdown_content{flex-grow: 100;}
+}
+
+/*КОНЕЦ стили для работы выпадающего меню на малых экранах*/
+/*---------------------------КОНЕЦ СТИЛИ ПАНЕЛИ НАВИГАЦИИ-----------------------------------------*/
+
+/*------------------------------------------СТИЛИ ПОДВАЛА-----------------------------------------*/
+footer a{color:#ccc;}/*333366*/
+footer a:hover{color:#55546F;}
+footer>div:last-child{border-top:2px solid  #e0e0e0;}
+.text_blue{color:#0C3C64;}
+.text_green{color: #339900;}
+.bg-green{background-color: #66FF00;}
+.bg-blue{background-color: #66A1D2;} /*бывший цвет 6666FF*/
+
+footer li {list-style-type: none;}
+footer ul {padding: 0; margin: 0; display:inline-block;}
+footer h5{font-weight: 400; font-size: 16px;}
+
+@media (min-width:768px) {
+    .logoFooter{float: right;}
+}
+@media (max-width:767px) {
+    .logoFooter{clear:both;;}
+}
+
+/*------------------------------------------КОНЕЦ СТИЛИ ПОДВАЛА-----------------------------------------*/
+/*--------------------стили блога-------------------------*/
+.blog{
+    padding: 5px 35px 35px 35px;
+    margin-top: 0px;
+}
+.blog-featured {
+    padding: 35px;
+}
+
+@media (max-width:575px) {
+    .blog-featured, .blog{
+        padding: 10px;
+        margin-top: 0px;
+     }
+}
+
+
+
+.category-desc {margin-bottom: 15px;}
+
+.jcomments-links {
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+/*-----------------------------КОНЕЦ стили блога----------------*/
+/*----------------------стили материала------------------------------------*/
+
+.imageIntro{
+    margin-right:20px;
+    margin-bottom:5px;
+    float:left;
+    width: 200px;
+}
+/*
+.box_review .imageIntro{display: none;}
+*/
+
+.item-page{
+    padding:5px 35px 35px 35px;
+    margin-top: 0px;
+}
+@media (max-width:575px) {
+    .item-page{
+        padding: 5px 10px 10px 10px;
+     }
+}
+.item-page h2, .item-page h3 {
+    /*color:#6c757d!important;*/
+    text-align:center;
+    margin-top: 20px;
+}
+
+
+.card h3{margin-top: auto !important;}
+
+/*стиль цитаты*/
+blockquote {
+    text-align: justify ;
+    font-style: oblique;
+    margin-left: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-left: 3px solid #ccc;
+     border-right: 3px solid #ccc;
+    border-radius: 5px;
+}
+/* КОНЕЦ стиль цитаты*/
+/*стили первого абзаца для краткого содержания*/
+.box_opening_paragraph {
+    min-height: 130px;
+}
+.box_review .box_opening_paragraph {min-height:0;}
+.box_opening_paragraph img{
+    margin-right:20px;
+    margin-bottom:5px;
+    float:left;
+    width: 200px;
+}
+.box_review .box_opening_paragraph img{display: none;}
+
+/*КОНЕЦ стили первого абзаца для краткого содержания*/
+/*блок оглавления на странице*/
+@media (min-width:768px) {
+    .horisontal .contents{
+    margin-left: 0;
+    margin-top: 10px;
+}
+    .contents{
+        margin-left: 10px;
+        flex: 1;
+        font-size: 15px;
+	}
+}
+
+/*
+@media (max-width:767px) {
+	.contents{
+		margin-top:10px;
+        width: 100%;
+        box-sizing: border-box;
+	}
+}
+*/
+/* блок оглавления на странице*/
+.contents {
+    margin-top:10px;
+    box-sizing: border-box;
+	background:#inherit;
+}
+.contents ul{
+	padding-left:0px;
+	margin-left:0px;
+    margin-right: 0px;
+	list-style-type: none;
+}
+.contents li{
+    background: #f3f4f8;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-top:3px solid #fff;
+    border-radius: 3px;
+}
+.contents li:hover{background: #f9f9f9;}
+.contents li ul{margin-left: 10px; margin-right: -5px;}
+.contents a {
+    color:#333 !important;
+    display: block;
+}
+
+.contents a:hover {
+	color:#111 !important;
+}
+
+.contents header{
+    background: #66FF00;
+	text-align:center;
+	font-size:20px;
+	color:#fff;
+}
+
+/*КОНЕЦ блок оглавления на странице*/
+
+
+/*-----------------------------------КОНЕЦ стили материала-------------------------------------------*/
+/*-----------------------------------стили таблиц----------------------------------*/
+
+
+
+
+
+/*-----------------------------------КОНЕЦ стили таблиц----------------------------------*/
+/*------------------------------------стили для guide-of-points----------------------------*/
+.buttonGuideBasic {
+	text-decoration: none;
+	font-size: 16px;
+	color: #000;
+	outline: none !important;
+    border: 1px solid #ccc;
+	border-radius: 5px;
+	box-shadow: .1em .1em .2em #666;
+    -webkit-box-shadow:.1em .1em .2em #666;
+    -moz-box-shadow:.1em .1em .2em #666;
+}
+.buttonGuideBasic:active {
+	top: .1em;
+	left: .1em;
+    box-shadow:0 0 0 0 #ccc;
+    -webkit-box-shadow:0 0 0 0 #ccc;
+     -moz-box-shadow:0 0 0 0 #ccc;
+}
+
+.bg-violet {background:#ea84ff;}
+.bg-light_grey{background:#e7e8eb;}
+.bg-dust{background: #f3f4f8;}
+
+.activeColor{background:#ea84ff;}
+
+.border-left{
+	border-left:1px solid;
+}
+.border-right{
+	border-right:1px solid;
+}
+
+button:disabled{color:#999;}
+input:disabled{color: #999;}
+select{
+	-webkit-appearance: none !important;
+	-moz-appearance: none !important;
+	appearance: none !important;
+	/*outline: none !important;*/
+	border: 1px solid #ccc;
+}
+
+.fontsize12{font-size:12px;}
+
+/*стили для закладок*/
+
+
+.tabGuide {
+    overflow: hidden;
+}
+
+.tabGuide button {
+   background-color: inherit;
+   font-weight:600;
+   border:2px solid  #fff;
+    float: left;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+	transition: 0.3s;
+}
+
+.tabGuide button:hover {
+    /*font-weight:700;*/
+	color: #ea84ff;
+}
+
+.tabGuide button.active{
+	color: #ea84ff;
+	/*font-weight:700;*/
+	border-top:2px solid  #ea84ff;
+}
+
+@media (max-width:575px) {
+        .tablinksGuide {font-size: 15px;}
+}
+
+/*Конец стили для закладок*/
+
+
+
+.BorderGrey{
+	border: 2px solid #999;
+	border-radius: 0px;
+	box-shadow: 1px 1px 2px 0px #999;
+	}
+/*------------------------------------КОНЕЦ стили для guide-of-points----------------------------*/
+
+/*===============вставка видео========================*/
+.box-video h3{
+    font-weight: 400;
+    font-size: 16px;
+    color: #666;
+}
+/*===============КОНЕЦ вставка видео========================*/

@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+		<!-- Bootstrap CSS -->
+		<!--<link rel="stylesheet" href="https://calculatorfs.ru/css/bootstrap.min.css">-->
+		<link rel="stylesheet" href="../bootstrap.min.css">
+		<link rel="stylesheet" href="index.css?version=2">
+		<link rel="stylesheet" href="calcV3.css?version=4">
+	</head>
+	<body>
+
+<div class="modal fade" id="ElementModal" tabindex="-1" role="dialog" aria-labelledby="windowElementLabel" aria-hidden="true">
+     <div class="modal-dialog" role="document">
+         <div class="modal-content JS_Section-Modal bg-ccc rounded" ><!--modal content-->
+			<div class="mod-header">
+				<div class="JS_Section active" id="header_title">
+					<div class="header-box text-center">
+						<output class="headeroutput-title">Прыжок</output>
+					</div>
+					<table class="table">
+						<tr>
+							<td>
+								<output class="headeroutput-name float-left"></output>
+								<output class="headeroutput-scores float-right">0.00</output>
+							</td>
+						</tr>
+					</table>
+				</div><!--end section with title-->
+				<!--rotations-->
+				<div class="JS_Section" id="rotations">
+					<div class="header-box text-center">
+						Обороты
+					</div>
+					<table class="table">
+						<tr>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="1"></td>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="2"></td>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="3"></td>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="4"></td>
+						</tr>
+					</table>
+				</div><!--edn rotations-->
+				<!--jumps-->
+				<div class="JS_Section" id="jumps">
+					<div class="header-box text-center">
+						Прыжки
+					</div>
+					<table class="table">
+						<tr>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="A"></td>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="T"></td>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="S"></td>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="Lo"></td>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="F"></td>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="Lz"></td>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" disabled value="Eu"></td>
+						</tr>
+					</table>
+				</div><!--end jumps-->
+				<!--=======================levels========================-->
+				<div class="JS_Section" id="levels">
+					<div class="header-box text-center">
+						Уровни
+					</div>
+					<table class="table">
+						<tr>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="B"></td>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="1"></td>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="2"></td>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="3"></td>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="4"></td>
+						</tr>
+					</table>
+				</div><!--edn levels-->
+				<!--=======================spins========================-->
+				<div class="JS_Section" id="spins">
+					<div class="header-box text-center">
+						Вращения
+					</div>
+					<table class="table">
+						<tr>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="USp"></td>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="CSp"></td>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="SSp"></td>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="CoSp"></td>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="LSp"></td>
+						</tr>
+					</table>
+				</div><!--edn spins-->
+				<!--=======================steps========================-->
+				<div class="JS_Section " id="steps">
+					<div class="header-box text-center">
+						Дорожки
+					</div>
+					<table class="table">
+						<tr>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="StSq"></td>
+							<td><input type="button" class="JS_ButtonModal buttonGuideBasic" value="ChSq"></td>
+						</tr>
+					</table>
+				</div><!--edn steps-->
+
+			</div><!--end header-->
+			<div class="mod-body JS_Section-Tables tabCalc-wrap">
+						<div class="wrap-tables">
+							<!--========================step========================-->
+							<div class="tabCalc-content">
+								<table class="table JS_Section-Table">
+									<tr class="JS_Section-El active splash">
+										<td ><input type="button" class="JS_Button JS_Name  buttonFlat" name="steps" value="элемент"></td>
+										<td><input type="button" class="JS_Button JS_Level  buttonFlat" name="levels" value="B"></td>
+										<td ><output class="lineoutput-scores">0.00</output></td>
+									</tr>
+								</table><!--end table step-->
+							</div>
+							<!--============================spins=====================================-->
+							<div class="tabCalc-content">
+								<table class="table JS_Section-Table">
+									<tr class="JS_Section-El active splash">
+										<td ><input type="button" class="JS_Button JS_Fly   buttonFlat" value="F"></td>
+										<td><input type="button" class="JS_Button JS_ChangeLeg   buttonFlat" value="C"></td>
+										<td ><input type="button" class="JS_Button JS_Name  buttonFlat" name="spins" value="элемент"></td>
+										<td><input type="button" class="JS_Button JS_Level   buttonFlat" name="levels" value="B"></td>
+										<td><input type="button" class="JS_Button JS_V   buttonFlat" disabled value="V"></td>
+										<td ><output class="lineoutput-scores">0.00</output></td>
+									</tr>
+								</table><!--end table spin-->
+							</div>
+							<!--=====================================jump=======================-->
+							<div class="tabCalc-content active">
+								<table class="table JS_Section-Table">
+									<tr>
+										<td colspan="5">
+											<button class="JS_RemoveJump buttonFlat float-left" disabled>убрать прыжок</button>
+											<button class="JS_AddJump buttonFlat float-right" disabled>добавить прыжок</button>
+										</td>
+									</tr>
+									<!--first jump-->
+									<tr class="JS_Section-El active splash">
+										<td ><input type="button" class="JS_Button JS_Rotation   buttonFlat" name="rotations" value="1"></td>
+										<td><input type="button" class="JS_Button JS_Name  buttonFlat" name="jumps" value="элемент"></td>
+										<td>
+											<input type="button" class="JS_Button JS_Galka  buttonFlat buttonGalka" value="q">
+											<input type="button" class="JS_Button JS_Galka   buttonFlat buttonGalka" value="<">
+											<input type="button" class="JS_Button JS_Galka  buttonFlat buttonGalka" value="<<">
+										</td>
+										<td ><input type="button" class="JS_Button JS_Edge  buttonFlat" disabled value="e"></td>
+										<td ><output class="lineoutput-scores">0.00</output></td>
+									</tr>
+
+									<!--second jump-->
+
+									<tr class="JS_Section-El">
+										<td><input type="button" class="JS_Button JS_Rotation  buttonFlat" name="rotations" value="1"></button></td>
+										<td><input type="button" class="JS_Button JS_Name  buttonFlat" name="jumps"  value="элемент"></td>
+										<td>
+											<input type="button" class="JS_Button JS_Galka  buttonFlat buttonGalka" value="q">
+											<input type="button" class="JS_Button JS_Galka  buttonFlat buttonGalka" value="<">
+											<input type="button" class="JS_Button JS_Galka  buttonFlat buttonGalka" value="<<">
+										</td>
+										<td ><input type="button" class="JS_Button JS_Edge  buttonFlat" disabled value="e"></button></td>
+										<td ><output class="lineoutput-scores">0.00</output></td>
+									</tr>
+
+									<!--fird jump-->
+
+									<tr class="JS_Section-El">
+										<td><input type="button" class="JS_Button JS_Rotation  buttonFlat" name="rotations" value="1"></td>
+										<td><input type="button" class="JS_Button JS_Name  buttonFlat" name="jumps" value="элемент"></td>
+										<td>
+											<input type="button" class="JS_Button JS_Galka  buttonFlat buttonGalka" value="q">
+											<input type="button" class="JS_Button JS_Galka  buttonFlat buttonGalka" value="<">
+											<input type="button" class="JS_Button JS_Galka  buttonFlat buttonGalka" value="<<">
+										</td>
+										<td ><input type="button" class="JS_Button JS_Edge  buttonFlat" disabled value="e"></td>
+										<td ><output class="lineoutput-scores">0.00</output></td>
+									</tr>
+
+								</table><!--end table jumps-->
+							</div>
+						</div><!-- end wrap-tables-->
+						<div class="tabCalc-links">
+							<button class="tabCalc-link" value="Дорожка">Дорожка</button>
+							<button class="tabCalc-link" value="Вращение">Вращение</button>
+							<button class="tabCalc-link active" value="Прыжок">Прыжок</button>
+						</div>
+			</div><!--end mod-body-->
+			<div class="modal-footer">
+				<button class="JS_Reset buttonFlat">Сброс</button>
+				<button class="JS_Save buttonFlat">Сохранить</button>
+			</div>
+
+         </div><!--end content-->
+	 </div><!--end modal-dialog-->
+</div><!--end modal-window-->
+
+<!-- Modal GOE -->
+<div class="modal fade" id="GoeModal" tabindex="-1" role="dialog" aria-labelledby="GoeGuideModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content bg-ccc rounded"><!--контент-->
+			<div class="mod-header">
+				<div class="JS_Section" id="goe">
+	                <div class="header-box text-center">
+	                    GOE
+	                </div>
+					<table class="table">
+						<tbody>
+							<tr>
+								<td><button class="JS_ButtonModal buttonGuideBasic" value="1">1</button></td>
+								<td><button class="JS_ButtonModal buttonGuideBasic" value="2">2</button></td>
+								<td><button class="JS_ButtonModal buttonGuideBasic" value="3">3</button></td>
+								<td><button class="JS_ButtonModal buttonGuideBasic" value="4">4</button></td>
+								<td><button class="JS_ButtonModal buttonGuideBasic" value="5">5</button></td>
+							</tr>
+							<tr >
+								<td colspan="5"><button class=" JS_ButtonModal buttonGuideBasic" value="0">0</button></td>
+							</tr>
+							<tr>
+								<td><button class="JS_ButtonModal buttonGuideBasic" value="-1">-1</button></td>
+								<td><button class="JS_ButtonModal buttonGuideBasic" value="-2">-2</button></td>
+								<td><button class="JS_ButtonModal buttonGuideBasic" value="-3">-3</button></td>
+								<td><button class="JS_ButtonModal buttonGuideBasic" value="-4">-4</button></td>
+								<td><button class="JS_ButtonModal buttonGuideBasic" value="-5">-5</button></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div><!--КОНЕЦ хидер-->
+			<div class="modal-footer">
+				<button  class="buttonClose buttonFlat" data-dismiss="modal">Закрыть</button>
+			</div>
+		</div><!--КОНЕЦ контент-->
+	</div>
+</div><!--КОНЕЦ Modal GOE -->
+
+		<main class="row"><!-- ряд (основной)-->
+			<div class="col-lg-10 offset-lg-1"><!--первая колонка (калькулятор)-->
+				<table class="table  JS_Section-Table" id="MainTable"><!--таблица calc-->
+					<thead class="bg-violet">
+						<tr>
+							<th class="">#</th>
+							<th>Элемент</th>
+							<th>x</th>
+							<th>GOE</th>
+							<th>Баллы</th>
+						</tr>
+					</thead>
+					<tbody class="tbody" id="MainTableBody">
+						<!--==========1row==============-->
+						<tr class="JS_Section-El">
+					    	<td class="JS_NumberOfline">1</td><td class=""><div class="boxoutput-name"><output class="lineoutput-name"></output></div></td>
+					        <td><input type="button" class="JS_X JS_Button buttonGuideBasic" value="X" disabled></td>
+					        <td><input type="button" class="JS_Goe JS_Button buttonGuideBasic" name="goe" value="0"></td>
+					        <td><output class="lineoutput-scores">0.00</output></td>
+					    </tr>
+						<!--==========2row==============-->
+						<tr class="JS_Section-El">
+					    	<td class="JS_NumberOfline">2</td><td class=""><div class="boxoutput-name"><output class="lineoutput-name"></output></div></td>
+					        <td><input type="button" class="JS_X JS_Button buttonGuideBasic" value="X" disabled></td>
+					        <td><input type="button" class="JS_Goe JS_Button buttonGuideBasic" name="goe" value="0"></td>
+					        <td><output class="lineoutput-scores">0.00</output></td>
+					    </tr>
+						<!--==========3row==============-->
+						<tr class="JS_Section-El">
+							<td class="JS_NumberOfline">3</td><td class=""><div class="boxoutput-name"><output class="lineoutput-name"></output></div></td>
+							<td><input type="button" class="JS_X JS_Button buttonGuideBasic" value="X" disabled></td>
+							<td><input type="button" class="JS_Goe JS_Button buttonGuideBasic" name="goe" value="0"></td>
+							<td><output class="lineoutput-scores">0.00</output></td>
+						</tr>
+						<!--==========4row==============-->
+						<tr class="JS_Section-El">
+							<td class="JS_NumberOfline">4</td><td class=""><div class="boxoutput-name"><output class="lineoutput-name"></output></div></td>
+							<td><input type="button" class="JS_X JS_Button buttonGuideBasic" value="X" disabled></td>
+							<td><input type="button" class="JS_Goe JS_Button buttonGuideBasic" name="goe" value="0"></td>
+							<td><output class="lineoutput-scores">0.00</output></td>
+						</tr>
+						<!--==========5row==============-->
+						<tr class="JS_Section-El">
+							<td class="JS_NumberOfline">5</td><td class=""><div class="boxoutput-name"><output class="lineoutput-name"></output></div></td>
+							<td><input type="button" class="JS_X JS_Button buttonGuideBasic" value="X" disabled></td>
+							<td><input type="button" class="JS_Goe JS_Button buttonGuideBasic" name="goe" value="0"></td>
+							<td><output class="lineoutput-scores">0.00</output></td>
+						</tr>
+						<!--==========6row==============-->
+						<tr class="JS_Section-El">
+							<td class="JS_NumberOfline">6</td><td class=""><div class="boxoutput-name"><output class="lineoutput-name"></output></div></td>
+							<td><input type="button" class="JS_X JS_Button buttonGuideBasic" value="X" disabled></td>
+							<td><input type="button" class="JS_Goe JS_Button buttonGuideBasic" name="goe" value="0"></td>
+							<td><output class="lineoutput-scores">0.00</output></td>
+						</tr>
+						<!--==========7row==============-->
+						<tr class="JS_Section-El">
+							<td class="JS_NumberOfline">7</td><td class=""><div class="boxoutput-name"><output class="lineoutput-name"></output></div></td>
+							<td><input type="button" class="JS_X JS_Button buttonGuideBasic" value="X" disabled></td>
+							<td><input type="button" class="JS_Goe JS_Button buttonGuideBasic" name="goe" value="0"></td>
+							<td><output class="lineoutput-scores">0.00</output></td>
+						</tr>
+						<!--==========8row==============-->
+						<tr class="JS_Section-El">
+							<td class="JS_NumberOfline">8</td><td class=""><div class="boxoutput-name"><output class="lineoutput-name"></output></div></td>
+							<td><input type="button" class="JS_X JS_Button buttonGuideBasic" value="X" disabled></td>
+							<td><input type="button" class="JS_Goe JS_Button buttonGuideBasic" name="goe" value="0"></td>
+							<td><output class="lineoutput-scores">0.00</output></td>
+						</tr>
+						<!--==========9row==============-->
+						<tr class="JS_Section-El">
+							<td class="JS_NumberOfline">9</td><td class=""><div class="boxoutput-name"><output class="lineoutput-name"></output></div></td>
+							<td><input type="button" class="JS_X JS_Button buttonGuideBasic" value="X" disabled></td>
+							<td><input type="button" class="JS_Goe JS_Button buttonGuideBasic" name="goe" value="0"></td>
+							<td><output class="lineoutput-scores">0.00</output></td>
+						</tr>
+						<!--==========10row==============-->
+						<tr class="JS_Section-El">
+							<td class="JS_NumberOfline">10</td><td class=""><div class="boxoutput-name"><output class="lineoutput-name"></output></div></td>
+							<td><input type="button" class="JS_X JS_Button buttonGuideBasic" value="X" disabled></td>
+							<td><input type="button" class="JS_Goe JS_Button buttonGuideBasic" name="goe" value="0"></td>
+							<td><output class="lineoutput-scores">0.00</output></td>
+						</tr>
+						<!--==========11row==============-->
+						<tr class="JS_Section-El">
+							<td class="JS_NumberOfline">11</td><td class=""><div class="boxoutput-name"><output class="lineoutput-name"></output></div></td>
+							<td><input type="button" class="JS_X JS_Button buttonGuideBasic" value="X" disabled></td>
+							<td><input type="button" class="JS_Goe JS_Button buttonGuideBasic" name="goe" value="0"></td>
+							<td><output class="lineoutput-scores">0.00</output></td>
+						</tr>
+						<!--==========12row==============-->
+						<tr class="JS_Section-El">
+							<td class="JS_NumberOfline">12</td><td class=""><div class="boxoutput-name"><output class="lineoutput-name"></output></div></td>
+							<td><input type="button" class="JS_X JS_Button buttonGuideBasic" value="X" disabled></td>
+							<td><input type="button" class="JS_Goe JS_Button buttonGuideBasic" name="goe" value="0"></td>
+							<td><output class="lineoutput-scores">0.00</output></td>
+						</tr>
+					</tbody>
+					<tr>
+						<td colspan="4" class="pl-0">	<button class="JS_Reset buttonFlat float-left">Сброс</button></td>
+						<td><output class="tableoutput-scores">0.00</output></td>
+
+					</tr>
+				</table>
+			</div><!--END первая колонка (калькулятор)-->
+		</main><!--END ряд (основной)-->
+<script src="../jquery-3.3.1.slim.min.js"></script>
+<script src="../bootstrap.min.js"></script>
+<!--		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+		<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>-->
+		<!--<script src="https://calculatorfs.ru/js/bootstrap.min.js?version=3"></script>-->
+
+		<script src="ModalWorkV3.js"></script>
+		<script src="ModalCalculateV3.js"></script>
+		<script src="Director.js"></script>
+		<script src="Compiling.js"></script>
+		<script src="MainCalculateV3.js"></script>
+		<script src="Set.js"></script>
+		<!-- <script src="ModalConfigV3.js"></script> -->
+		<!-- <script src="MainWorkV3.js"></script> -->
+		<!-- <script src="PrintTable.js"></script> -->
+		<script src="listofvalue.js?version=2"></script>
+</body>
