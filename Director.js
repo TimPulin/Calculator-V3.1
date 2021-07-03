@@ -4,7 +4,7 @@ let ID,
     Ich,
     IndexT,
     NameOfProperty,
-    sectionINmain;
+    sectionInMain;
 
 let arrActiveTabs={};
 let arrButtonsClass={};
@@ -20,7 +20,7 @@ let arrLineScores={};
 $(document).ready(function () {
     $('.JS_Section-Table').find('.boxoutput-name, .JS_Goe, .JS_X').click(function() {
         Ich=$(this);
-        sectionINmain=$(this).closest('.JS_Section-El');
+        sectionInMain=$(this).closest('.JS_Section-El');
         GetID();
     })
 })
@@ -29,7 +29,7 @@ $(document).ready(function () {
 
 
 function GetID() {
-    ID=Ich.closest('.JS_Section-Table').find('.JS_Section-El').index(sectionINmain);
+    ID=Ich.closest('.JS_Section-Table').find('.JS_Section-El').index(sectionInMain);
     return;
 }
 
