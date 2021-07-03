@@ -67,7 +67,7 @@ $(document).ready(function() {
         fullscores=0;
         Iam.closest('.JS_Section-Table').find('.JS_Section-El').each(function(index) {
             Ich=$(this).find('.boxoutput-name');
-            sectionINmain=$(this);
+            sectionInMain=$(this);
             GetID();
             MakeTheName_Modal(0);
 
@@ -104,7 +104,7 @@ $(document).ready(function() {
     }
 
     function GetInfoX() {
-        if(sectionINmain.find('.JS_X').hasClass('active')){
+        if(sectionInMain.find('.JS_X').hasClass('active')){
             x=1.1;
         }
         else {
@@ -116,7 +116,7 @@ $(document).ready(function() {
     function GetGOE() {
         compare=0;
         bonusGoe=0;
-        goe=sectionINmain.find('.JS_Goe').val();
+        goe=sectionInMain.find('.JS_Goe').val();
         for(let i=0; i<arrScoresInMain[NameOfProperty].length; i++){
             if(arrScoresInMain[NameOfProperty][i]>compare){
                 compare=arrScoresInMain[NameOfProperty][i];
@@ -165,8 +165,8 @@ $(document).ready(function() {
     //=========КОНЕЦ проверка второго элемента - является ли он акселем==========
 
     function PrinterLine() {
-        sectionINmain.find('.lineoutput-scores').text(scores.toFixed(2));
-        sectionINmain.find('.lineoutput-name').text(arrNamesInMain[NameOfProperty].join('+'));
+        sectionInMain.find('.lineoutput-scores').text(scores.toFixed(2));
+        sectionInMain.find('.lineoutput-name').text(arrNamesInMain[NameOfProperty].join('+'));
     }
     //==============КОНЕЦ функции DirectorLine=====================
 })
