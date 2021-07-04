@@ -1,8 +1,7 @@
-$(document).ready(function() { 
+$(document).ready(function() {
 
     let Iam,
         IamModal,
-    //    IndexT,
         IamSectionTable;
     let arrTemporaryClass=[];
     let arrTemporaryAble=[];
@@ -16,7 +15,7 @@ $(document).ready(function() {
     })
 
     function DirectorCompilingConfig() {
-        MakeTheName_Modal(0);
+        MakeTheName_Modal();
         FindActiveTab();
         GetSectionInfo();
         GetButtonsInfo();
