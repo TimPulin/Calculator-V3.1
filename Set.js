@@ -10,7 +10,7 @@ $(document).ready(function() {
 
 
     function DirectorSetConfig() {
-        MakeTheName_Modal(0);
+        MakeTheName_Modal();
         CheckAvailabilityInfo();
         if(CheckAvailabilityInfo()){
             SetActiveTab();
