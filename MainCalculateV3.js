@@ -27,7 +27,7 @@ $(document).ready(function() {
         DirectorMain();
     })
     $('#ElementModal .JS_Reset').click(function() {
-        MakeTheName_Modal(0);
+        MakeTheName_Modal();
         arrScoresInMain[NameOfProperty]=0;
         arrNamesInMain[NameOfProperty]=$.extend(true, [], arrNameZero);
         buttonX.prop('disabled', true).removeClass('active activeColor');
@@ -69,7 +69,7 @@ $(document).ready(function() {
             Ich=$(this).find('.boxoutput-name');
             sectionInMain=$(this);
             GetID();
-            MakeTheName_Modal(0);
+            MakeTheName_Modal();
 
             if(arrLineScores[NameOfProperty]==undefined){
                 arrLineScores[NameOfProperty]=0;
@@ -85,7 +85,7 @@ $(document).ready(function() {
 
     //==============функции DirectorLine=====================
     function DirectorLine() {
-        MakeTheName_Modal(0);
+        MakeTheName_Modal();
         CheckAvailabilityInfo();
         GetInfoX();
         GetGOE();
