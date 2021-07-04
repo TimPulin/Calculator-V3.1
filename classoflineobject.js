@@ -1,23 +1,33 @@
 
 class Element {
     arrNames=[]
-    value1=3
-    value2=2
-    value3=1
-    goe=5
+    value1=0
+    value2=0
+    value3=0
+    goe=0
     halfPartBonus=1
-    valueOfElement = this.calcBaseValue() * this.halfPartBonus + this.calcGoeBonus()
 
-    name(){
+    makeNameOfElement(){
         return this.arrNames.join('+')
-    } // END name()
+    } // END MakeNameOfElement()
+
+    // ============== Вычисление стоимости элемента
+    calcValueOfElement(){
+        return this.calcBaseValue() * this.halfPartBonus + this.calcGoeBonus()
+    }
 
     calcBaseValue(){
+        if(this.arrNames.length==2){
+            if(this.CheckAxels(this.arrNames[1].toLowerCase())){
+                this.arrNames.push('SEQ');
+                return (this.value1 + this.value2 + this.value3) * 0.8
+            }
+        }
         return this.value1 + this.value2 + this.value3
     } // END calcBaseValue()
 
     calcGoeBonus(){
-        if(this.name() =='ChSq1'){
+        if(this.makeNameOfElement() =='ChSq1'){
             return 0.5*this.goe;
         }
         else {
@@ -30,6 +40,16 @@ class Element {
             return compare/10*this.goe;
         }
     } // END calcGoeBonus()
+
+    CheckAxels(secondjump){
+        for (let i=0; i<arrOfAxels.length; i++){
+            if(arrOfAxels[i]===secondjump){
+            return true;
+            }
+        }
+        return false;
+    }
+    // ================== END Вычисление стоимости элемента
 } // END class Element{}
 
 let ProgramsElements = {
@@ -44,9 +64,6 @@ let ProgramsElements = {
     Element9 : new Element(),
     Element10 : new Element(),
     Element11 : new Element(),
-    Element12 : new Element()
+    Element12 : new Element(),
+    ElementInModal : new Element()
 }
-
-
-
-console.log(ProgramsElements[keyOfElement].valueOfElement)
