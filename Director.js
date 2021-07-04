@@ -4,7 +4,8 @@ let ID,
     Ich,
     IndexT,
     NameOfProperty,
-    sectionInMain;
+    sectionInMain, // Удалить после проверки
+    keyOfElement;
 
 let arrActiveTabs={};
 let arrButtonsClass={};
@@ -22,23 +23,27 @@ $(document).ready(function () {
         Ich=$(this);
         sectionInMain=$(this).closest('.JS_Section-El');
         GetID();
+        MakeKeyOfElement();
     })
 })
-
-
-
 
 function GetID() {
     ID=Ich.closest('.JS_Section-Table').find('.JS_Section-El').index(sectionInMain);
     return;
 }
 
+function MakeKeyOfElement() {
+    keyOfElement=`Element${ID+1}`;
+    return;
+}
+
 //====создание имени====
-function MakeTheName_Modal(index) {
-    NameOfProperty='line'+ID+1+'_index'+index;
+function MakeTheName_Modal() {
+    NameOfProperty='line'+ID+1;
     return;
 }
 //====КОНЕЦ создание имени====
+
 
 const BUTTON_EU=$('#jumps .JS_ButtonModal[value="Eu"]'),
       BUTTON_A=$('#jumps .JS_ButtonModal[value="A"]'),
@@ -84,7 +89,7 @@ function Hide_HeadersSections(Iam) {
 //======================сброс массивов одной линии==============================
 $(document).ready(function() {
     $('#ElementModal .JS_Reset').click(function(){
-        MakeTheName_Modal(0);
+        MakeTheName_Modal();
         ResetModalArrs();
     })
 
