@@ -20,7 +20,7 @@ $(document).ready(function() {
     })
 
 
-//=============================перенос информации с экрана для выбора значения атрибута элемента
+//=============================перенос информации с экрана выбора значения атрибута элемента
     $(document).ready(function () {
         let Val_IamModal;
 
@@ -48,7 +48,8 @@ $(document).ready(function() {
             return;
         }
     })
-//=============================КОНЕЦ перенос информации с экрана для выбора значения атрибута элемента
+//=============================КОНЕЦ перенос информации с экрана выбора значения атрибута элемента
+
     $('#ElementModal .JS_Fly, #ElementModal .JS_ChangeLeg').click(function() {
         Iam=$(this);
         if(!$('#ElementModal .JS_Fly').hasClass('active') && !$('#ElementModal .JS_ChangeLeg').hasClass('active')){
@@ -62,6 +63,10 @@ $(document).ready(function() {
         DirectorModal();
     })
 
+    $('#ElementModal .JS_Save').click(function() {
+        Iam=$('.tabCalc-content.active .JS_Button:first');
+        DirectorModal();
+    })
 
     function DirectorModal() {
         Packer();
@@ -72,7 +77,6 @@ $(document).ready(function() {
 
     //==============все функции Packer==============================
     function Packer() {
-        MakeTheName_Modal(0);
         CleanerModalArrs();
         Iam.closest('.JS_Section-Table').find('.JS_Section-El').each(function(){
             line=$(this);
@@ -84,19 +88,22 @@ $(document).ready(function() {
     function CleanerModalArrs(){
         arrName.splice(0, arrName.length);
         arrScore.splice(0, arrScore.length);
-        delete arrNamesInMain[NameOfProperty];
-        delete arrScoresInMain[NameOfProperty];
-
+        ProgramsElements[keyOfElement].arrNames.splice(0, ProgramsElements[keyOfElement].arrNames.length);
+        ProgramsElements[keyOfElement].value1=0
+        ProgramsElements[keyOfElement].value2=0
+        ProgramsElements[keyOfElement].value3=0
         return;
     }
+
     function PusherInArr_forModal() {
         if (linename!=null){
             arrName.push(linename);
             arrScore.push(linescores);
+            ProgramsElements[keyOfElement].arrNames=$.extend(true, [], arrName);
+            for(i=0; i<arrScore.length; i++){
+                ProgramsElements[keyOfElement]['value'+(i+1)]=arrScore[i];
+            }
         }
-            arrNamesInMain[NameOfProperty]=$.extend(true, [], arrName);
-            arrScoresInMain[NameOfProperty]=$.extend(true, [], arrScore);
-
     }
 
     //==============КОНЕЦ все функции Packer==============================
