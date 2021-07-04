@@ -128,7 +128,7 @@ $(document).ready(function () {
 $(document).ready(function() {
     let Iam;
 
-    $('.JS_Fly, .JS_ChangeLeg, .JS_V, .JS_Edge, .JS_X').click(function() {
+    $('.JS_Fly, .JS_ChangeLeg, .JS_V, .JS_Edge').click(function() {
         $(this).toggleClass('active activeColor');
 
     })
