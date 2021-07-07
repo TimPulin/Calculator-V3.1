@@ -87,6 +87,7 @@ $(document).ready(function() {
     function GetCurrentLineAndIndex() {
         ProgramsElements.ElementInModal1.currentLine_Index = Iam.closest('.JS_Section-Table').find('.JS_Section-El').index(Iam);
         currentLine = Iam.closest('.JS_Section-El');
+console.log(Iam.closest('.JS_Section-Table').find('.JS_Section-El').index(Iam) )
     }
 
     function GetLineName() {
