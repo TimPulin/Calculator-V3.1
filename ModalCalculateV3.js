@@ -22,26 +22,26 @@ $(document).ready(function() {
 
 //=============================перенос информации с экрана выбора значения атрибута элемента
     $(document).ready(function () {
-        let Val_IamModal;
+        let Val_ButtonModal;
 
        $('#ElementModal .JS_ButtonModal').click(function() {
-            Val_IamModal=$(this).val();
+            Val_ButtonModal=$(this).val();
             AddInLine_ValButtonModal();
             CheckClass();
             DirectorModal();
         })
         function AddInLine_ValButtonModal(){
-            Iam.val(Val_IamModal);
+            Iam.val(Val_ButtonModal);
             Iam.addClass('active activeColor');
             return
         };
         function CheckClass() {
             if(Iam.hasClass('JS_Name')){
                 Iam.closest('.JS_Section-El').find('.JS_Level, .JS_Rotation').addClass('active activeColor');
-                if (Val_IamModal=='Eu'){
+                if (Val_ButtonModal=='Eu'){
                     BUTTON_ROTATION.val(1);
                 }
-                else if(Val_IamModal=='ChSq'){
+                else if(Val_ButtonModal=='ChSq'){
                     BUTTON_STEPLEVEL.val(1);
                 }
             }
