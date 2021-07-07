@@ -35,6 +35,7 @@ $(document).ready(function(){
         Index,
         Title_Modal,
         section;
+
     $('.tabCalc-link').click(function(){
         Iam=$(this);
         Index=Iam.closest('.tabCalc-links').find('.tabCalc-link').index(Iam);
@@ -184,7 +185,7 @@ $(document).ready(function() {
           ShowHeader();
       })
       $('#ElementModal .JS_RemoveJump').click(function() {
-          section=$(this).closest('.JS_Section-Table').find('.JS_Section-El.active:last')
+          section=$(this).closest('.JS_Section-Table').find('.JS_Section-El.active:last');
           ResetButtons(section);
           section.removeClass('active splash').addClass('hide');
           Hide_HeadersSections($(this));
