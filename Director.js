@@ -1,9 +1,9 @@
 //======================ГЛОБАЛЬНЫЕ служебные функции======================
 
 let ID,
-    Ich,
+    Ich, // Удалить после проверки
     IndexT,
-    NameOfProperty,
+    NameOfProperty, // Удалить после проверки
     sectionInMain, // Удалить после проверки
     keyOfElement;
 
@@ -14,21 +14,21 @@ let arrLinesClass={};
 let arrButtonsAbility={};
 let arrOutputs={};
 
-let arrNamesInMain={};
-let arrScoresInMain={};
-let arrLineScores={};
+let arrNamesInMain={}; // Удалить после проверки
+let arrScoresInMain={}; // Удалить после проверки
+let arrLineScores={}; // Удалить после проверки
 
 $(document).ready(function () {
     $('.JS_Section-Table').find('.boxoutput-name, .JS_Goe, .JS_X').click(function() {
-        Ich=$(this);
+        Ich=$(this); // Удалить после проверки
         sectionInMain=$(this).closest('.JS_Section-El');
-        GetID();
+        GetID($(this));
         MakeKeyOfElement();
     })
 })
 
-function GetID() {
-    ID=Ich.closest('.JS_Section-Table').find('.JS_Section-El').index(sectionInMain);
+function GetID(here) {
+    ID=here.closest('.JS_Section-Table').find('.JS_Section-El').index(sectionInMain);
     return;
 }
 
@@ -107,9 +107,8 @@ $(document).ready(function() {
 
 //==================сброс массивов всей таблицы============================
 $(document).ready(function() {
-    let section;
+    let section=$('#MainTable');
     $('#MainTable .JS_Reset').click(function() {
-        section=$(this).closest('.JS_Section-Table');
         ResetAllArrs();
         CleanUpMainTable();
     })
@@ -146,10 +145,24 @@ $(document).ready(function() {
     }
 
     function CleanUpMainTable() {
+        let keyOfElement;
+
         section.find('.lineoutput-name').val('');
         section.find('.JS_X').removeClass('active activeColor').prop('disabled', true);
         section.find('.JS_Goe').val(0).removeClass('active activeColor');
         section.find('.lineoutput-scores, .tableoutput-scores').val('0.00');
+
+        section.find('.JS_Section-El').each(function(index){
+            keyOfElement = `Element${index+1}`;
+            for (key in ProgramsElements[keyOfElement].arrNames){
+                delete ProgramsElements[keyOfElement].arrNames[key];
+            }
+            ProgramsElements[keyOfElement].value1 = 0;
+            ProgramsElements[keyOfElement].value2 = 0;
+            ProgramsElements[keyOfElement].value3 = 0;
+            ProgramsElements[keyOfElement].goe = 0;
+            ProgramsElements[keyOfElement].halfPartBonus = 1;
+        })
     }
 })
 
