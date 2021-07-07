@@ -62,13 +62,13 @@ $(document).ready(function(){
     function RenderingLine() {
         section=Iam.closest('.JS_Section-El')
         section.find('.lineoutput-name').text(ProgramsElements[keyOfElement].makeNameOfElement())
-        section.find('.lineoutput-scores').text(ProgramsElements[keyOfElement].calcValueOfElement().toFixed(2))
+        section.find('.lineoutput-scores').text(ProgramsElements[keyOfElement].calcValueOfElement().toFixed(2) )
     }
 
     function CalcFullScores() {
-        let keyOfElement
+        let keyOfElement;
         let fullscores = 0;
-        $('#MainTable').find('.JS_Section-El').each(function(index){
+        $('#MainTable').find('.JS_Section-El').each(function(index) {
             keyOfElement = `Element${index+1}`;
             fullscores += ProgramsElements[keyOfElement].calcValueOfElement();
         })
