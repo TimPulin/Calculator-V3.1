@@ -10,11 +10,10 @@ $(document).ready(function() {
          HideModal();
     })
     $('#ElementModal .JS_Reset').click(function() {
-        // Iam=$(this);
         HideModal();
-        ResetModal($(this));
+        ResetModal($(this) );
     })
-    function HideModal() {$('#ElementModal').modal('hide');}
+    function HideModal() {$('#ElementModal').modal('hide')}
     //КОНЕЦ закрытие модального окна
 
     $('.JS_Goe').click(function() {
@@ -37,9 +36,9 @@ $(document).ready(function(){
         section;
 
     $('.tabCalc-link').click(function(){
-        Iam=$(this);
-        Index=Iam.closest('.tabCalc-links').find('.tabCalc-link').index(Iam);
-        Title_Modal=Iam.val();
+        Iam = $(this);
+        Index = Iam.closest('.tabCalc-links').find('.tabCalc-link').index(Iam);
+        Title_Modal = Iam.val();
         AddRemove_Active();
         ResetModal(Iam);
         ShowHide_tabel ();
@@ -47,18 +46,18 @@ $(document).ready(function(){
         Print_Title_Modal();
     });
 
-    function AddRemove_Active(){
+    function AddRemove_Active() {
         Iam.closest('.tabCalc-links').find('.tabCalc-link.active').removeClass('active');
         Iam.addClass('active');
     };
 
-    function ShowHide_tabel(){
+    function ShowHide_tabel() {
         Iam.closest('.tabCalc-wrap').find('.tabCalc-content.active').removeClass('active');
         Iam.closest('.tabCalc-wrap').find('.tabCalc-content').eq(Index).addClass('active');
     };
 
 
-    function Print_Title_Modal(){
+    function Print_Title_Modal() {
         Iam.closest('.JS_Section-Modal').find('.headeroutput-title').text(Title_Modal);
     };
 
@@ -187,7 +186,7 @@ $(document).ready(function() {
       $('#ElementModal .JS_RemoveJump').click(function() {
           section=$(this).closest('.JS_Section-Table').find('.JS_Section-El.active:last');
           ResetButtons(section);
-          section.removeClass('active splash').addClass('hide');
+          // section.removeClass('active splash').addClass('hide');
           Hide_HeadersSections($(this));
           ShowHeader();
       })
