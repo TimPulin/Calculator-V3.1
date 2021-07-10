@@ -4,16 +4,15 @@ $(document).ready(function(){
         buttonX,
         buttonGoe,
         section;
-    let arrNameZero=[''];
 
     $('.boxoutput-name').click(function() {
-        Iam=$(this);
-        buttonX=$(this).closest('.JS_Section-El').find('.JS_X');
-        buttonGoe=$(this).closest('.JS_Section-El').find('.JS_Goe');
+        Iam = $(this);
+        buttonX = $(this).closest('.JS_Section-El').find('.JS_X');
+        buttonGoe = $(this).closest('.JS_Section-El').find('.JS_Goe');
     })
 
-    $('#ElementModal .JS_Save').click(function(){
-        if(IndexT==2){
+    $('#ElementModal .JS_Save').click(function() {
+        if(IndexT == 2){
             buttonX.prop('disabled', false);
         }
         else {
@@ -21,14 +20,19 @@ $(document).ready(function(){
             ProgramsElements[keyOfElement].halfPartBonus = 1;
         }
         buttonGoe.removeClass('active activeColor').val(0);
-        ProgramsElements[keyOfElement].goe=0;
+        ProgramsElements[keyOfElement].goe = 0;
+        CopyInfoFromModalToMain_ElementObject();
         DirectorMain();
     })
 
+    function CopyInfoFromModalToMain_ElementObject() {
+        for(let i = 1; i <= 3; i++) {
+            ProgramsElements[keyOfElement][`name${i}`] = ProgramsElements.ElementInModal1[`name${i}`];
+            ProgramsElements[keyOfElement][`value${i}`] = ProgramsElements.ElementInModal1[`value${i}`];
+        }
+    }
+
     $('#ElementModal .JS_Reset').click(function() {
-        MakeTheName_Modal();
-        arrScoresInMain[NameOfProperty]=0;
-        arrNamesInMain[NameOfProperty]=$.extend(true, [], arrNameZero);
         buttonX.prop('disabled', true).removeClass('active activeColor');
         buttonGoe.removeClass('active activeColor').val(0);
         DirectorMain();
@@ -36,10 +40,11 @@ $(document).ready(function(){
 
     //Работа с кнопкой Goe
     $('.JS_Section-Table .JS_Goe').click(function() {
-        Iam=$(this);
+        Iam = $(this);
     })
+
     $('#GoeModal .JS_ButtonModal').click(function() {
-        ProgramsElements[keyOfElement].goe=$(this).val();
+        ProgramsElements[keyOfElement].goe = $(this).val();
         Iam.val(ProgramsElements[keyOfElement].goe)
         ProgramsElements[keyOfElement].goe == 0 ? Iam.removeClass('active activeColor') : Iam.addClass('active activeColor');
         DirectorMain();
@@ -56,26 +61,25 @@ $(document).ready(function(){
 
     function DirectorMain() {
         RenderingLine();
-        RenderingFullScores(CalcFullScores());
+        RenderingFullScores();
     }
 
     function RenderingLine() {
-        section=Iam.closest('.JS_Section-El')
-        section.find('.lineoutput-name').text(ProgramsElements[keyOfElement].makeNameOfElement())
-        section.find('.lineoutput-scores').text(ProgramsElements[keyOfElement].calcValueOfElement().toFixed(2) )
+        section = Iam.closest('.JS_Section-El');
+        section.find('.lineoutput-name').text(ProgramsElements[keyOfElement].makeNameOfElement() );
+        section.find('.lineoutput-scores').text(ProgramsElements[keyOfElement].calcValueOfElement().toFixed(2) );
+    }
+
+    function RenderingFullScores() {
+        $('#MainTable').find('.tableoutput-scores').text(CalcFullScores().toFixed(2) )
     }
 
     function CalcFullScores() {
-        let keyOfElement;
         let fullscores = 0;
+
         $('#MainTable').find('.JS_Section-El').each(function(index) {
-            keyOfElement = `Element${index+1}`;
-            fullscores += ProgramsElements[keyOfElement].calcValueOfElement();
+            fullscores += ProgramsElements[`Element${index+1}`].calcValueOfElement();
         })
         return fullscores;
     }
-
-    function RenderingFullScores(fullscores) {
-        $('#MainTable').find('.tableoutput-scores').text(fullscores.toFixed(2))
-    }
-})
+}) // END MainCalcV3_1.js
