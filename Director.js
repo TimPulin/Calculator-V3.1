@@ -14,9 +14,6 @@ let arrLinesClass={};
 let arrButtonsAbility={};
 let arrOutputs={};
 
-let arrNamesInMain={}; // Удалить после проверки
-let arrScoresInMain={}; // Удалить после проверки
-let arrLineScores={}; // Удалить после проверки
 
 $(document).ready(function () {
     $('.JS_Section-Table').find('.boxoutput-name, .JS_Goe, .JS_X').click(function() {
@@ -28,18 +25,18 @@ $(document).ready(function () {
 })
 
 function GetID(here) {
-    ID=here.closest('.JS_Section-Table').find('.JS_Section-El').index(sectionInMain);
+    ID = here.closest('.JS_Section-Table').find('.JS_Section-El').index(sectionInMain);
     return;
 }
 
 function MakeKeyOfElement() {
-    keyOfElement=`Element${ID+1}`;
+    keyOfElement = `Element${ID+1}`;
     return;
 }
 
 //====создание имени====
 function MakeTheName_Modal() {
-    NameOfProperty='line'+ID+1;
+    NameOfProperty = 'line'+ID+1;
     return;
 }
 //====КОНЕЦ создание имени====
@@ -54,7 +51,7 @@ const BUTTON_EU=$('#jumps .JS_ButtonModal[value="Eu"]'),
 
 function ResetModal(Iam) {
     let section;
-    section=Iam.closest('.JS_Section-Modal');
+    section = Iam.closest('.JS_Section-Modal');
     ResetButtons(section);
     Hide_HeadersSections(Iam);
 
