@@ -101,7 +101,7 @@ class ElementInModal extends Element {
             this[`value${i+1}`] = 0;
         }
         for(let i = 0; i <= 3; i++) {
-            this[`name${i+1}`] = 0;
+            this[`name${i+1}`] = '';
         }
     }
 
