@@ -78,10 +78,10 @@ $(document).ready(function() {
         PrinterModal();
     })
 
-    $('#ElementModal .JS_Save').click(function() {
-        Iam = $('.tabCalc-content.active .JS_Button:first');
-        DirectorModal();
-    })
+    // $('#ElementModal .JS_Save').click(function() {
+    //     Iam = $('.tabCalc-content.active .JS_Button:first');
+    //     DirectorModal();
+    // })
 
 
     function DirectorModal() {
