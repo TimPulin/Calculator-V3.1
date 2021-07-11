@@ -22,8 +22,16 @@ $(document).ready(function(){
         }
         buttonGoe.removeClass('active activeColor').val(0);
         ProgramsElements[keyOfElement].goe=0;
+        SendInfoTo_ElementObject();
         DirectorMain();
     })
+
+    function SendInfoTo_ElementObject() {
+        for(let i = 1; i <= 3; i++) {
+            ProgramsElements[keyOfElement][`name${i}`] = ProgramsElements.ElementInModal1[`name${i}`];
+            ProgramsElements[keyOfElement][`value${i}`] = ProgramsElements.ElementInModal1[`value${i}`];
+        }
+    }
 
     $('#ElementModal .JS_Reset').click(function() {
         MakeTheName_Modal();
