@@ -14,7 +14,6 @@ class Element {
 
     makeNameOfElement() {
         this.nameOfElement = this.name1
-console.log(this.nameOfElement)
         if(this.checkAxels(this.name2.toLowerCase() ) ) {
             this.nameOfElement += `+${this.name2}+SEQ`
             return this.nameOfElement
@@ -46,7 +45,7 @@ console.log(this.nameOfElement)
         else {
             let compare = 0;
             for (let i = 1; i <= 3; i++) {
-                if (this[`value${i}`] > compare) { //['value' + i]
+                if (this[`value${i}`] > compare) { 
                     compare = this['value' + i];
                 }
             }
