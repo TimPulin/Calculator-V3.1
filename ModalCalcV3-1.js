@@ -5,16 +5,16 @@ $(document).ready(function() {
         currentLine,
         linescores;
 
-    // $('.boxoutput-name').click(function() {
-    //     ProgramsElements.ElementInModal1.ResetToZeroAllModalInfo();
-    //     GetInfoFrom_ElementObject();
-    // })
+    $('.boxoutput-name').click(function() {
+        ProgramsElements.ElementInModal1.ResetToZeroAllModalInfo();
+        GetInfoFrom_ElementObject();
+    })
 
     function GetInfoFrom_ElementObject() {
-        // for(let i = 1; i <= 3; i++) {
-        //     ProgramsElements.ElementInModal1[`name${i}`] = ProgramsElements[keyOfElement][`name${i}`];
-        //     ProgramsElements.ElementInModal1[`value${i}`] = ProgramsElements[keyOfElement][`value${i}`];
-        // }
+        for(let i = 1; i <= 3; i++) {
+            ProgramsElements.ElementInModal1[`name${i}`] = ProgramsElements[keyOfElement][`name${i}`];
+            ProgramsElements.ElementInModal1[`value${i}`] = ProgramsElements[keyOfElement][`value${i}`];
+        }
     }
 
     $('.JS_Name, .JS_Level, .JS_Rotation').click(function() {
