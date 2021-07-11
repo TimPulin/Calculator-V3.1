@@ -10,7 +10,6 @@ $(document).ready(function() {
 
 
     function DirectorSetConfig() {
-        MakeTheName_Modal();
         CheckAvailabilityInfo();
         if(CheckAvailabilityInfo() ) {
             SetActiveTab();
@@ -22,14 +21,14 @@ $(document).ready(function() {
             $('#ElementModal .JS_Section-Tables .JS_Section-Table').each(function(index) {
                 $(this).find('.JS_Section-El:first').addClass('splash');
             })
-            SetTabsInModal(TABLINKS.eq(2) );
+            SwitchTabsInModal(TABLINKS.eq(2) );
         }
     }
 
 
 
     function CheckAvailabilityInfo() {
-        if(arrActiveTabs[NameOfProperty] == undefined) {
+        if(arrActiveTabs[keyOfElement] == undefined) {
             return false;
         }
         else {
@@ -38,28 +37,28 @@ $(document).ready(function() {
     }
 
     function SetActiveTab() {
-        IndexT = arrActiveTabs[NameOfProperty];
-        SetTabsInModal(TABLINKS.eq(IndexT) );
+        IndexT = arrActiveTabs[keyOfElement];
+        SwitchTabsInModal(TABLINKS.eq(IndexT) );
     }
 
     function SetLines() {
         SECTIONTABLES.eq(IndexT).find('.JS_Section-El').each(function(index) {
-            $(this).addClass(arrLinesClass[NameOfProperty][index]);
+            $(this).addClass(arrLinesClass[keyOfElement][index]);
         })
     }
 
     function SetButtons() {
         SECTIONTABLES.eq(IndexT).find('.JS_Button, .JS_RemoveJump, .JS_AddJump').each(function(index) {
-            $(this).addClass(arrButtonsClass[NameOfProperty][index]);
-            $(this).val(arrButtonsVal[NameOfProperty][index]);
-            $(this).prop('disabled', arrButtonsAbility[NameOfProperty][index]);
+            $(this).addClass(arrButtonsClass[keyOfElement][index]);
+            $(this).val(arrButtonsVal[keyOfElement][index]);
+            $(this).prop('disabled', arrButtonsAbility[keyOfElement][index]);
         })
         return;
     }
 
     function SetOutputs() {
         $('#ElementModal').find('.headeroutput-name, .headeroutput-scores, .lineoutput-scores').each(function(index) {
-            $(this).text(arrOutputs[NameOfProperty][index]);
+            $(this).text(arrOutputs[keyOfElement][index]);
         })
     }
 })
