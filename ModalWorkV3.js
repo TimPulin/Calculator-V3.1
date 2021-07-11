@@ -187,7 +187,6 @@ $(document).ready(function() {
       $('#ElementModal .JS_RemoveJump').click(function() {
           section=$(this).closest('.JS_Section-Table').find('.JS_Section-El.active:last');
           ResetButtons(section);
-          section.removeClass('active splash').addClass('hide');
           Hide_HeadersSections($(this));
           ShowHeader();
       })
