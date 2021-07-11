@@ -12,7 +12,7 @@ $(document).ready(function(){
     })
 
     $('#ElementModal .JS_Save').click(function() {
-        if(IndexT == 2){
+        if(IndexT == 2) {
             buttonX.prop('disabled', false);
         }
         else {
