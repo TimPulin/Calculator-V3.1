@@ -1,4 +1,4 @@
-function SetTabsInModal(Iam) {
+function SwitchTabsInModal(Iam) {
         let Index,
             Title_Modal;
 
