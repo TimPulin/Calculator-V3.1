@@ -4,16 +4,15 @@ $(document).ready(function(){
         buttonX,
         buttonGoe,
         section;
-    let arrNameZero=[''];
 
     $('.boxoutput-name').click(function() {
-        Iam=$(this);
-        buttonX=$(this).closest('.JS_Section-El').find('.JS_X');
-        buttonGoe=$(this).closest('.JS_Section-El').find('.JS_Goe');
+        Iam = $(this);
+        buttonX = $(this).closest('.JS_Section-El').find('.JS_X');
+        buttonGoe = $(this).closest('.JS_Section-El').find('.JS_Goe');
     })
 
     $('#ElementModal .JS_Save').click(function(){
-        if(IndexT==2){
+        if(INDEX_ActiveTab == 2){
             buttonX.prop('disabled', false);
         }
         else {
@@ -34,8 +33,6 @@ $(document).ready(function(){
     }
 
     $('#ElementModal .JS_Reset').click(function() {
-        MakeTheName_Modal();
-
         buttonX.prop('disabled', true).removeClass('active activeColor');
         buttonGoe.removeClass('active activeColor').val(0);
         DirectorMain();
@@ -67,7 +64,7 @@ $(document).ready(function(){
     }
 
     function RenderingLine() {
-        section=Iam.closest('.JS_Section-El')
+        section = Iam.closest('.JS_Section-El')
         section.find('.lineoutput-name').text(ProgramsElements[keyOfElement].makeNameOfElement() );
         section.find('.lineoutput-scores').text(ProgramsElements[keyOfElement].calcValueOfElement().toFixed(2) );
     }
