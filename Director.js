@@ -129,16 +129,6 @@ $(document).ready(function() {
         for (key in arrOutputs){
             delete arrOutputs[key];
         }
-        for (key in arrNamesInMain){
-            delete arrNamesInMain[key];
-        }
-        for (key in arrScoresInMain){
-            delete arrScoresInMain[key];
-        }
-        for (key in arrLineScores){
-            delete arrLineScores[key];
-        }
-        return;
     }
 
     function CleanUpMainTable() {
@@ -151,9 +141,7 @@ $(document).ready(function() {
 
         section.find('.JS_Section-El').each(function(index){
             keyOfElement = `Element${index+1}`;
-            for (key in ProgramsElements[keyOfElement].arrNames){
-                delete ProgramsElements[keyOfElement].arrNames[key];
-            }
+
             ProgramsElements[keyOfElement].value1 = 0;
             ProgramsElements[keyOfElement].value2 = 0;
             ProgramsElements[keyOfElement].value3 = 0;
