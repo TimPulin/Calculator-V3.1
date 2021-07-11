@@ -96,7 +96,7 @@ class ElementInModal extends Element {
 
     ResetToZeroAllModalInfo() {
         this.linename = '';
-        this.nameOfElement;
+        this.nameOfElement = '';
         for(let i = 0; i <= 3; i++) {
             this[`value${i+1}`] = 0;
         }
