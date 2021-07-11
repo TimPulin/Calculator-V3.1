@@ -64,7 +64,6 @@ $(document).ready(function() {
     })
 
     function DirectorModal() {
-        // CleanerModalArrs();
         DirectorLine();
     }
 
@@ -77,7 +76,7 @@ $(document).ready(function() {
     function DirectorLine() {
         GetCurrentLineAndIndex();
         GetLineName();
-        ProgramsElements.ElementInModal1.GetLineScores();
+        ProgramsElements.ElementInModal1.MakeLinesInfo();
         PrintLineScores();
         // removeClass_Splash();
         return;
@@ -85,9 +84,8 @@ $(document).ready(function() {
 
 
     function GetCurrentLineAndIndex() {
-        ProgramsElements.ElementInModal1.currentLine_Index = Iam.closest('.JS_Section-Table').find('.JS_Section-El').index(Iam);
         currentLine = Iam.closest('.JS_Section-El');
-console.log(Iam.closest('.JS_Section-Table').find('.JS_Section-El').index(Iam) )
+        ProgramsElements.ElementInModal1.currentLine_Index = Iam.closest('.JS_Section-Table').find('.JS_Section-El').index(currentLine);
     }
 
     function GetLineName() {
@@ -96,7 +94,6 @@ console.log(Iam.closest('.JS_Section-Table').find('.JS_Section-El').index(Iam) )
         currentLine.find('.JS_Button.active').each(function() {
             ProgramsElements.ElementInModal1.linename += $(this).val();
         })
-        return;
     }
 
     function removeClass_Splash() {
