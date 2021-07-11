@@ -13,37 +13,38 @@ $(document).ready(function() {
         ProgramsElements.ElementInModal1.ResetToZeroAllModalInfo();
     })
 
+    $('#ElementModal .JS_Reset').click(function() {
+        ProgramsElements.ElementInModal1.ResetToZeroAllModalInfo();
+    })
+
 //=============================перенос информации с экрана выбора значения атрибута элемента
     $(document).ready(function () {
         let Val_ButtonModal;
 
        $('#ElementModal .JS_ButtonModal').click(function() {
-            Val_ButtonModal=$(this).val();
-            AddInLine_ValButtonModal();
-            CheckClass();
+            Val_ButtonModal = $(this).val();
+            SetPropretiesOfButtons();
             DirectorModal();
         })
 
-        function AddInLine_ValButtonModal() {
+        function SetPropretiesOfButtons() {
             Iam.val(Val_ButtonModal);
             Iam.addClass('active activeColor');
-            return
-        }
-
-        function CheckClass() {
-            if( Iam.hasClass('JS_Name') ) {
+            if( CheckClass_JS_Name() ) {
                 Iam.closest('.JS_Section-El').find('.JS_Level, .JS_Rotation').addClass('active activeColor');
-                if (Val_ButtonModal=='Eu'){
+                if (Val_ButtonModal == 'Eu'){
                     BUTTON_ROTATION.val(1);
                 }
-                else if(Val_ButtonModal=='ChSq'){
+                else if(Val_ButtonModal == 'ChSq'){
                     BUTTON_STEPLEVEL.val(1);
                 }
             }
-            return;
         }
-    })
-//=============================КОНЕЦ перенос информации с экрана выбора значения атрибута элемента
+
+        function CheckClass_JS_Name() {
+            return Iam.hasClass('JS_Name') ? true : false;
+        }
+    }) //=============================КОНЕЦ перенос информации с экрана выбора значения атрибута элемента
 
     $('#ElementModal .JS_Fly, #ElementModal .JS_ChangeLeg').click(function() {
         Iam=$(this);
@@ -78,7 +79,7 @@ $(document).ready(function() {
         GetLineName();
         ProgramsElements.ElementInModal1.MakeLinesInfo();
         PrintLineScores();
-        // removeClass_Splash();
+        removeClass_Splash();
         return;
     }
 
