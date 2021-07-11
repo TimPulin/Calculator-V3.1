@@ -22,7 +22,7 @@ $(document).ready(function() {
             $('#ElementModal .JS_Section-Tables .JS_Section-Table').each(function(index){
                 $(this).find('.JS_Section-El:first').addClass('splash');
             })
-            Iam.eq(2).click();
+            // Iam.eq(2).click();
         }
 
     }
@@ -40,7 +40,7 @@ $(document).ready(function() {
 
     function SetActiveTab() {
         IndexT=arrActiveTabs[NameOfProperty];
-        Iam.eq(IndexT).click();
+        // Iam.eq(IndexT).click();
         return;
     }
 
