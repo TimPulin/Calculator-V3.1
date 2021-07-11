@@ -6,11 +6,11 @@ $(document).ready(function() {
         linescores;
 
     $('.JS_Name, .JS_Level, .JS_Rotation').click(function() {
-        Iam=$(this);
+        Iam = $(this);
     })
 
     $('.tabCalc-link').click(function() {
-        CleanerModalArrs();
+        ProgramsElements.ElementInModal1.ResetToZeroAllModalInfo();
     })
 
 //=============================перенос информации с экрана выбора значения атрибута элемента
@@ -58,19 +58,19 @@ $(document).ready(function() {
         DirectorModal();
     })
 
-    $('#ElementModal .JS_Save').click(function() {
-        Iam=$('.tabCalc-content.active .JS_Button:first');
-        DirectorModal();
+    $('#ElementModal .JS_RemoveJump').click(function() {
+        Iam=$(this).closest('.JS_Section-Table').find('.JS_Section-El.active:last .JS_Button:first');
+        GetCurrentLineAndIndex();
+        currentLine.removeClass('active splash').addClass('hide');
+        ProgramsElements.ElementInModal1.ResetToZeroLinesInfo();
+        PrinterModal();
     })
 
     function DirectorModal() {
         DirectorLine();
+        PrinterModal();
     }
 
-
-    function CleanerModalArrs() {
-
-    }
 
     //================все функции DirectorLine=====================
     function DirectorLine() {
@@ -107,5 +107,10 @@ $(document).ready(function() {
         return;
     }
     //================КОНЕЦ все функции DirectorLine=====================
+
+    function PrinterModal() {
+        $('#ElementModal .headeroutput-name').text(ProgramsElements.ElementInModal1.makeNameOfElement() );
+        $('#ElementModal .headeroutput-scores').text(ProgramsElements.ElementInModal1.calcBaseValue().toFixed(2) );
+    }
 
 })
