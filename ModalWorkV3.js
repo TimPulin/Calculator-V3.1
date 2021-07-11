@@ -31,38 +31,39 @@ $(document).ready(function() {
 
 //========================Переключение вкладок в модальном окне==
 $(document).ready(function(){
-    let Iam,
-        Index,
-        Title_Modal,
-        section;
+    let Iam;
+        // Index,
+        // Title_Modal,
+        // section;
 
     $('.tabCalc-link').click(function(){
-        Iam=$(this);
-        Index=Iam.closest('.tabCalc-links').find('.tabCalc-link').index(Iam);
-        Title_Modal=Iam.val();
-        AddRemove_Active();
-        ResetModal(Iam);
-        ShowHide_tabel ();
-        ShowHeader();
-        Print_Title_Modal();
-    });
+        Iam = $(this);
+        SetTabsInModal(Iam);
+        // Index=Iam.closest('.tabCalc-links').find('.tabCalc-link').index(Iam);
+        // Title_Modal=Iam.val();
+        // AddRemove_Active();
+        // ResetModal(Iam);
+        // ShowHide_tabel ();
+        // ShowHeader();
+        // Print_Title_Modal();
+    })
 
     function AddRemove_Active(){
         Iam.closest('.tabCalc-links').find('.tabCalc-link.active').removeClass('active');
         Iam.addClass('active');
-    };
+    }
 
     function ShowHide_tabel(){
         Iam.closest('.tabCalc-wrap').find('.tabCalc-content.active').removeClass('active');
         Iam.closest('.tabCalc-wrap').find('.tabCalc-content').eq(Index).addClass('active');
-    };
+    }
 
 
     function Print_Title_Modal(){
         Iam.closest('.JS_Section-Modal').find('.headeroutput-title').text(Title_Modal);
-    };
+    }
 
-});
+})
 //========================КОНЕЦ Переключение вкладок в модальном окне==
 
 //====================вызов экрана для выбора значения атрибута элемента==========
