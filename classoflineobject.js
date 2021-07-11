@@ -1,7 +1,10 @@
 class Element {
 
     constructor(){
-        this.arrNames = []
+        this.nameOfElement = ''
+        this.name1 = ''
+        this.name2 = ''
+        this.name3 = ''
         this.value1 = 0
         this.value2 = 0
         this.value3 = 0
@@ -10,50 +13,55 @@ class Element {
     }
 
     makeNameOfElement() {
-        return this.arrNames.join('+')
-    } // END MakeNameOfElement()
+        this.nameOfElement = this.name1
+        if(this.checkAxels(this.name2.toLowerCase() ) ) {
+            this.nameOfElement += `+${this.name2}+SEQ`
+            return this.nameOfElement
+        }
+        for (let i = 2; i <= 3; i++) {
+            if(this['name'+i] != '')  {
+                this.nameOfElement += ('+' + this['name'+i]);
+            }
+        }
+            return this.nameOfElement
+    } // END makeNameOfElement()
 
-    // ============== Вычисление стоимости элемента
+    // ============== Вычисление стоимости элемента ========================
     calcValueOfElement() {
-
         return this.calcBaseValue() * this.halfPartBonus + this.calcGoeBonus()
     }
 
-    calcBaseValue(V1, V2, V3){
-        if(this.arrNames.length==2){
-            if(this.CheckAxels(this.arrNames[1].toLowerCase())){
-                this.arrNames.push('SEQ');
-                return (this.value1 + this.value2 + this.value3) * 0.8;
-            }
+    calcBaseValue() {
+        if(this.checkAxels(this.name2.toLowerCase() ) ) {
+            return (this.value1 + this.value2) * 0.8;
         }
-console.log(V1)
-        return this.value1 + this.value2 + this.value3;
+            return this.value1 + this.value2 + this.value3;
     } // END calcBaseValue()
 
     calcGoeBonus(){
-        if(this.makeNameOfElement() =='ChSq1') {
+        if(this.makeNameOfElement() == 'ChSq1') {
             return 0.5*this.goe;
         }
         else {
             let compare = 0;
             for (let i = 1; i <= 3; i++) {
-                if (this['value' + i] > compare) {
-                    compare=this['value' + i];
+                if (this[`value${i}`] > compare) {
+                    compare = this['value' + i];
                 }
             }
             return compare / 10 * this.goe;
         }
     } // END calcGoeBonus()
 
-    CheckAxels(secondjump) {
+    checkAxels(secondjump) {
         for (let i = 0; i < arrOfAxels.length; i++) {
             if(arrOfAxels[i] === secondjump) {
                 return true;
             }
         }
-        return false;
+                return false;
     }
-    // ================== END Вычисление стоимости элемента
+    // ================== END Вычисление стоимости элемента ===================================
 } // END class Element{}
 
 class ElementInModal extends Element {
@@ -67,21 +75,40 @@ class ElementInModal extends Element {
         return list_value[this.linename.toLowerCase() ] == undefined ? false : true;
     }
 
-    GetLineScores() {
+    MakeLinesInfo() {
         if ( this.CheckValidName() ) {
-            this[ 'value' + (this.currentLine_Index + 1) ] = list_value[ this.linename.toLowerCase() ];
-            this.arrNames[this.currentLine_Index] = ProgramsElements.ElementInModal1.linename;
+            this.SetLinesInfo();
         } else {
-            this[ 'value' + (this.currentLine_Index + 1) ] = 0;
-            ProgramsElements.ElementInModal1.linename = null;
+            this.ResetToZeroLinesInfo()
+        }
+    }
+
+    SetLinesInfo() {
+        this[`value${this.currentLine_Index + 1}`] = list_value[ this.linename.toLowerCase() ];
+        this[`name${this.currentLine_Index + 1}`] = ProgramsElements.ElementInModal1.linename;
+    }
+
+    ResetToZeroLinesInfo() {
+        this[`value${this.currentLine_Index + 1}`] = 0;
+        this[`name${this.currentLine_Index + 1}`] = '';
+        ProgramsElements.ElementInModal1.linename = '';
+    }
+
+    ResetToZeroAllModalInfo() {
+        this.linename = '';
+        this.nameOfElement;
+        for(let i = 0; i <= 3; i++) {
+            this[`value${i+1}`] = 0;
+        }
+        for(let i = 0; i <= 3; i++) {
+            this[`name${i+1}`] = 0;
         }
     }
 
     SendLinesScores() {
-console.log('value' + (this.currentLine_Index + 1))
-        return this[ 'value' + (this.currentLine_Index + 1) ]
+        return this[`value${this.currentLine_Index + 1}`]
     }
-}
+}// END class ElementInModal{}
 
 let ProgramsElements = {
     Element1 : new Element(),
@@ -98,5 +125,3 @@ let ProgramsElements = {
     Element12 : new Element(),
     ElementInModal1 : new ElementInModal()
 }
-
-// console.log(ProgramsElements.ElementInModal1['name1'])
