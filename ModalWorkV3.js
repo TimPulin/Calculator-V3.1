@@ -111,7 +111,8 @@ $(document).ready(function() {
         $(this).addClass('active activeColor');
 
     })
-}) //===============================КОНЕЦ поведение кнопок при выборе значения атрибута==========
+})
+//===============================КОНЕЦ поведение кнопок при выборе значения атрибута==========
 
 //=====================работа кнопок на экране для выбора значения атрибута элемента====
 $(document).ready(function(){
@@ -217,7 +218,7 @@ $(document).ready(function () {
              //блокировка/разблокировка кнопки "добавить прыжок" в зависимости от кнопки "A"
              BUTTON_A.click(function() {
                  if(Index_ActiveSection == 1){
-                     if(amount == 3){
+                     if(amount == 3) {
                          $('#ElementModal .JS_RemoveJump').trigger('click');
                      }
                      $('#ElementModal .JS_AddJump').prop('disabled', true);
