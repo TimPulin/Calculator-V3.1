@@ -13,7 +13,7 @@ let arrOutputs = {};
 
 $(document).ready(function () {
     $('.JS_Section-Table').find('.boxoutput-name, .JS_Goe, .JS_X').click(function() {
-        GetID($(this));
+        GetID($(this) );
         MakeKeyOfElement();
     })
 })
@@ -24,7 +24,6 @@ function GetID(here) {
 
 function MakeKeyOfElement() {
     keyOfElement = `Element${ID+1}`;
-    return;
 }
 
 const BUTTON_EU = $('#jumps .JS_ButtonModal[value="Eu"]'),
@@ -64,6 +63,36 @@ function ShowHeader() {
 function Hide_HeadersSections(Iam) {
     Iam.closest('.JS_Section-Modal').find('.mod-header .JS_Section.active').removeClass('active');
 }
+
+function SwitchTabsInModal(Iam) {
+        let Index,
+            Title_Modal;
+
+        Index = Iam.closest('.tabCalc-links').find('.tabCalc-link').index(Iam);
+        Title_Modal = Iam.val();
+        AddRemove_Active();
+        ResetModal(Iam);
+        ShowHide_tabel ();
+        ShowHeader();
+        Print_Title_Modal();
+
+
+    function AddRemove_Active() {
+        Iam.closest('.tabCalc-links').find('.tabCalc-link.active').removeClass('active');
+        Iam.addClass('active');
+    }
+
+    function ShowHide_tabel() {
+        Iam.closest('.tabCalc-wrap').find('.tabCalc-content.active').removeClass('active');
+        Iam.closest('.tabCalc-wrap').find('.tabCalc-content').eq(Index).addClass('active');
+    }
+
+    function Print_Title_Modal() {
+        Iam.closest('.JS_Section-Modal').find('.headeroutput-title').text(Title_Modal);
+    }
+} //END SwitchTabsInModal
+
+
 //======================КОНЕЦ ГЛОБАЛЬНЫЕ служебные функции======================
 
 //======================сброс массивов представлления одной линии==============================
