@@ -111,7 +111,7 @@ $(document).ready(function() {
 
     function removeClass_Splash() {
         if (ProgramsElements.ElementInModal1.CheckValidName() ) {
-            currentLine.removeClass('splash'); //убираем класс анимации!!!
+            currentLine.removeClass('splash'); 
         }
     }
 
