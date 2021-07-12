@@ -1,8 +1,9 @@
+// Set.js
 $(document).ready(function() {
 
       let IndexT;
-    const Iam=$('#ElementModal .tabCalc-links .tabCalc-link');
-    const IamSectionTable=$('#ElementModal .JS_Section-Tables .JS_Section-Table');
+    const TABLINKS = $('#ElementModal .tabCalc-links .tabCalc-link');
+    const SECTIONTABLES = $('#ElementModal .JS_Section-Tables .JS_Section-Table');
 
     $('.boxoutput-name').click(function() {
         DirectorSetConfig();
@@ -10,27 +11,23 @@ $(document).ready(function() {
 
 
     function DirectorSetConfig() {
-        MakeTheName_Modal(0);
         CheckAvailabilityInfo();
-        if(CheckAvailabilityInfo()){
+        if(CheckAvailabilityInfo() ) {
             SetActiveTab();
             SetLines();
             SetButtons();
             SetOutputs();
         }
         else {
-            $('#ElementModal .JS_Section-Tables .JS_Section-Table').each(function(index){
+            SECTIONTABLES.each(function() {
                 $(this).find('.JS_Section-El:first').addClass('splash');
             })
-            Iam.eq(2).click();
+            SwitchTabsInModal(TABLINKS.eq(2) );
         }
-
     }
 
-
-
     function CheckAvailabilityInfo() {
-        if(arrActiveTabs[NameOfProperty]==undefined){
+        if(arrActiveTabs[keyOfElement] == undefined) {
             return false;
         }
         else {
@@ -39,31 +36,29 @@ $(document).ready(function() {
     }
 
     function SetActiveTab() {
-        IndexT=arrActiveTabs[NameOfProperty];
-        Iam.eq(IndexT).click();
-        return;
+        IndexT = arrActiveTabs[keyOfElement];
+        SwitchTabsInModal(TABLINKS.eq(IndexT) );
     }
 
     function SetLines() {
-        IamSectionTable.eq(IndexT).find('.JS_Section-El').each(function(index) {
-            $(this).addClass(arrLinesClass[NameOfProperty][index]);
+        SECTIONTABLES.eq(IndexT).find('.JS_Section-El').each(function(index) {
+            $(this).addClass(arrLinesClass[keyOfElement][index]);
         })
-        return;
+        SECTIONTABLES.eq(IndexT).find('.JS_Section-El:first').removeClass('splash');
     }
 
     function SetButtons() {
-        IamSectionTable.eq(IndexT).find('.JS_Button, .JS_RemoveJump, .JS_AddJump').each(function(index) {
-            $(this).addClass(arrButtonsClass[NameOfProperty][index]);
-            $(this).val(arrButtonsVal[NameOfProperty][index]);
-            $(this).prop('disabled', arrButtonsAbility[NameOfProperty][index]);
+        SECTIONTABLES.eq(IndexT).find('.JS_Button, .JS_RemoveJump, .JS_AddJump').each(function(index) {
+            $(this).addClass(arrButtonsClass[keyOfElement][index]);
+            $(this).val(arrButtonsVal[keyOfElement][index]);
+            $(this).prop('disabled', arrButtonsAbility[keyOfElement][index]);
         })
-        return;
     }
 
     function SetOutputs() {
         $('#ElementModal').find('.headeroutput-name, .headeroutput-scores, .lineoutput-scores').each(function(index) {
-            $(this).text(arrOutputs[NameOfProperty][index]);
+            $(this).text(arrOutputs[keyOfElement][index]);
         })
     }
-
 })
+// END Set.js

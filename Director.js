@@ -1,65 +1,51 @@
 //======================ГЛОБАЛЬНЫЕ служебные функции======================
 
 let ID,
-    Ich,
-    IndexT,
-    NameOfProperty,
-    sectionInMain;
+    INDEX_ActiveTab,
+    keyOfElement;
 
-let arrActiveTabs={};
-let arrButtonsClass={};
-let arrButtonsVal={};
-let arrLinesClass={};
-let arrButtonsAbility={};
-let arrOutputs={};
-
-let arrNamesInMain={};
-let arrScoresInMain={};
-let arrLineScores={};
+let arrActiveTabs = {};
+let arrButtonsClass = {};
+let arrButtonsVal = {};
+let arrLinesClass = {};
+let arrButtonsAbility = {};
+let arrOutputs = {};
 
 $(document).ready(function () {
     $('.JS_Section-Table').find('.boxoutput-name, .JS_Goe, .JS_X').click(function() {
-        Ich=$(this);
-        sectionInMain=$(this).closest('.JS_Section-El');
-        GetID();
+        GetID($(this) );
+        MakeKeyOfElement();
     })
 })
 
-
-
-
-function GetID() {
-    ID=Ich.closest('.JS_Section-Table').find('.JS_Section-El').index(sectionInMain);
-    return;
+function GetID(here) {
+    ID = here.closest('.JS_Section-Table').find('.JS_Section-El').index(here.closest('.JS_Section-El') );
 }
 
-//====создание имени====
-function MakeTheName_Modal(index) {
-    NameOfProperty='line'+ID+1+'_index'+index;
-    return;
+function MakeKeyOfElement() {
+    keyOfElement = `Element${ID+1}`;
 }
-//====КОНЕЦ создание имени====
 
-const BUTTON_EU=$('#jumps .JS_ButtonModal[value="Eu"]'),
-      BUTTON_A=$('#jumps .JS_ButtonModal[value="A"]'),
-      BUTTON_ROTATION=$('#ElementModal .JS_Section-Tables .JS_Section-Table:eq(2) .JS_Section-El:eq(1) .JS_Rotation'),
-      BUTTON_CHSQ=$('#steps .JS_ButtonModal[value="ChSq"]'),
-      BUTTON_STEPLEVEL=$('#ElementModal .JS_Section-Tables .JS_Section-Table:eq(0) .JS_Level');
+const BUTTON_EU = $('#jumps .JS_ButtonModal[value="Eu"]'),
+      BUTTON_A = $('#jumps .JS_ButtonModal[value="A"]'),
+      BUTTON_ROTATION = $('#ElementModal .JS_Section-Tables .JS_Section-Table:eq(2) .JS_Section-El:eq(1) .JS_Rotation'),
+      BUTTON_CHSQ = $('#steps .JS_ButtonModal[value="ChSq"]'),
+      BUTTON_STEPLEVEL = $('#ElementModal .JS_Section-Tables .JS_Section-Table:eq(0) .JS_Level');
 
 
 function ResetModal(Iam) {
     let section;
-    section=Iam.closest('.JS_Section-Modal');
+    section = Iam.closest('.JS_Section-Modal');
+
     ResetButtons(section);
     Hide_HeadersSections(Iam);
-
     ShowHeader();
     $('#ElementModal').find('.JS_Section-Table .JS_Section-El').not(':only-child').not(':first').removeClass('active');
     section.find('.headeroutput-name').val('');
     section.find('.headeroutput-scores').val('0.00');
     $('#ElementModal').find('.JS_RemoveJump, .JS_AddJump').prop('disabled', true);
-    return;
 }
+
 function ResetButtons(section) {
     section.find('.JS_Button').removeClass('active activeColor');
     section.find('.JS_Name').val('элемент');
@@ -68,45 +54,75 @@ function ResetButtons(section) {
     $('#ElementModal .JS_V').prop('disabled', true);
     section.find('.lineoutput-scores').text('0.00');
     section.find('.JS_Edge').prop('disabled', true);
-
 }
 
 function ShowHeader() {
     $('#header_title').addClass('active');
-    return ;
 }
+
 function Hide_HeadersSections(Iam) {
     Iam.closest('.JS_Section-Modal').find('.mod-header .JS_Section.active').removeClass('active');
-    return;
 }
+
+function SwitchTabsInModal(Iam) {
+        let Index,
+            Title_Modal;
+
+        Index = Iam.closest('.tabCalc-links').find('.tabCalc-link').index(Iam);
+        Title_Modal = Iam.val();
+        AddRemove_Active();
+        ResetModal(Iam);
+        ShowHide_tabel ();
+        ShowHeader();
+        Print_Title_Modal();
+
+
+    function AddRemove_Active() {
+        Iam.closest('.tabCalc-links').find('.tabCalc-link.active').removeClass('active');
+        Iam.addClass('active');
+    }
+
+    function ShowHide_tabel() {
+        Iam.closest('.tabCalc-wrap').find('.tabCalc-content.active').removeClass('active');
+        Iam.closest('.tabCalc-wrap').find('.tabCalc-content').eq(Index).addClass('active');
+    }
+
+    function Print_Title_Modal() {
+        Iam.closest('.JS_Section-Modal').find('.headeroutput-title').text(Title_Modal);
+    }
+} //END SwitchTabsInModal
+
+
 //======================КОНЕЦ ГЛОБАЛЬНЫЕ служебные функции======================
 
-//======================сброс массивов одной линии==============================
+//======================сброс массивов представлления одной линии==============================
 $(document).ready(function() {
     $('#ElementModal .JS_Reset').click(function(){
-        MakeTheName_Modal(0);
         ResetModalArrs();
+        Reset_ElementObject(ProgramsElements[keyOfElement]);
     })
 
     function ResetModalArrs() {
-        delete arrActiveTabs[NameOfProperty];
-        delete arrButtonsClass[NameOfProperty];
-        delete arrButtonsVal[NameOfProperty];
-        delete arrLinesClass[NameOfProperty];
-        delete arrButtonsAbility[NameOfProperty];
-        delete arrOutputs[NameOfProperty];
+        delete arrActiveTabs[keyOfElement];
+        delete arrButtonsClass[keyOfElement];
+        delete arrButtonsVal[keyOfElement];
+        delete arrLinesClass[keyOfElement];
+        delete arrButtonsAbility[keyOfElement];
+        delete arrOutputs[keyOfElement];
     }
 })
-
 //===================КОНЕЦ сброс массивов одной линии===================
 
 //==================сброс массивов всей таблицы============================
 $(document).ready(function() {
-    let section;
+    let section = $('#MainTable');
+
     $('#MainTable .JS_Reset').click(function() {
-        section=$(this).closest('.JS_Section-Table');
         ResetAllArrs();
         CleanUpMainTable();
+        section.find('.JS_Section-El').each(function(index) {
+            Reset_ElementObject(ProgramsElements[`Element${index+1}`])
+        })
     })
 
     function ResetAllArrs() {
@@ -128,16 +144,6 @@ $(document).ready(function() {
         for (key in arrOutputs){
             delete arrOutputs[key];
         }
-        for (key in arrNamesInMain){
-            delete arrNamesInMain[key];
-        }
-        for (key in arrScoresInMain){
-            delete arrScoresInMain[key];
-        }
-        for (key in arrLineScores){
-            delete arrLineScores[key];
-        }
-        return;
     }
 
     function CleanUpMainTable() {
@@ -146,6 +152,15 @@ $(document).ready(function() {
         section.find('.JS_Goe').val(0).removeClass('active activeColor');
         section.find('.lineoutput-scores, .tableoutput-scores').val('0.00');
     }
-})
+}) //==================КОНЕЦ сброс массивов всей таблицы============================
 
-//==================КОНЕЦ сброс массивов всей таблицы============================
+function Reset_ElementObject(currentObject) {
+            currentObject.value1 = 0;
+            currentObject.value2 = 0;
+            currentObject.value3 = 0;
+            currentObject.name1 = '';
+            currentObject.name2 = '';
+            currentObject.name3 = '';
+            currentObject.goe = 0;
+            currentObject.halfPartBonus = 1;
+}
