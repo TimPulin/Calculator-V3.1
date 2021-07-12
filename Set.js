@@ -1,3 +1,4 @@
+// Set.js
 $(document).ready(function() {
 
       let IndexT;
@@ -18,14 +19,12 @@ $(document).ready(function() {
             SetOutputs();
         }
         else {
-            $('#ElementModal .JS_Section-Tables .JS_Section-Table').each(function(index) {
+            SECTIONTABLES.each(function() {
                 $(this).find('.JS_Section-El:first').addClass('splash');
             })
             SwitchTabsInModal(TABLINKS.eq(2) );
         }
     }
-
-
 
     function CheckAvailabilityInfo() {
         if(arrActiveTabs[keyOfElement] == undefined) {
@@ -45,6 +44,7 @@ $(document).ready(function() {
         SECTIONTABLES.eq(IndexT).find('.JS_Section-El').each(function(index) {
             $(this).addClass(arrLinesClass[keyOfElement][index]);
         })
+        SECTIONTABLES.eq(IndexT).find('.JS_Section-El:first').removeClass('splash');
     }
 
     function SetButtons() {
@@ -53,7 +53,6 @@ $(document).ready(function() {
             $(this).val(arrButtonsVal[keyOfElement][index]);
             $(this).prop('disabled', arrButtonsAbility[keyOfElement][index]);
         })
-        return;
     }
 
     function SetOutputs() {
@@ -62,3 +61,4 @@ $(document).ready(function() {
         })
     }
 })
+// END Set.js
