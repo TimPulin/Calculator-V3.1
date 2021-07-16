@@ -1,3 +1,4 @@
+// Compiling.js
 $(document).ready(function() {
 
     let Iam,
@@ -34,9 +35,9 @@ $(document).ready(function() {
     function GetSectionInfo() {
         Cleaner_arrTemporaryClass();
         IamSectionTable.eq(INDEX_ActiveTab).find('.JS_Section-El').each(function() {
-            arrTemporaryClass.push($(this).attr('class'))
+            arrTemporaryClass.push($(this).attr('class') )
         })
-        arrLinesClass[keyOfElement]=$.extend(true, [], arrTemporaryClass);
+        arrLinesClass[keyOfElement] = $.extend(true, [], arrTemporaryClass);
     }
 
     function GetButtonsInfo() {
@@ -45,14 +46,14 @@ $(document).ready(function() {
         Cleaner_arrTemporaryVal();
         IamSectionTable.eq(INDEX_ActiveTab).find('.JS_Button, .JS_RemoveJump, .JS_AddJump').each(function(index) {
 
-            if($(this).hasClass('activeColor') ){
-                arrTemporaryClass.push('active activeColor')
+            if($(this).hasClass('activeColor') ) {
+                arrTemporaryClass.push('active activeColor');
             }
             else {
-                arrTemporaryClass.push('')
+                arrTemporaryClass.push('');
             }
             arrTemporaryAble.push($(this).prop('disabled') );
-            arrTemporaryVal.push($(this).val() )
+            arrTemporaryVal.push($(this).val() );
         })
         arrButtonsClass[keyOfElement] = $.extend(true, [], arrTemporaryClass);
         arrButtonsAbility[keyOfElement] = $.extend(true, [], arrTemporaryAble);
@@ -64,20 +65,19 @@ $(document).ready(function() {
         IamModal.find('.headeroutput-name, .headeroutput-scores, .lineoutput-scores').each(function() {
             arrTemporaryVal.push($(this).val() );
         })
-        arrOutputs[keyOfElement]=$.extend(true, [], arrTemporaryVal);
+        arrOutputs[keyOfElement] = $.extend(true, [], arrTemporaryVal);
     }
 
     function Cleaner_arrTemporaryClass() {
         arrTemporaryClass.splice(0, arrTemporaryClass.length);
-        return;
-    }
-    function Cleaner_arrTemporaryAble() {
-        arrTemporaryAble.splice(0, arrTemporaryAble.length);
-        return;
-    }
-    function Cleaner_arrTemporaryVal() {
-        arrTemporaryVal.splice(0, arrTemporaryVal.length);
-        return;
     }
 
+    function Cleaner_arrTemporaryAble() {
+        arrTemporaryAble.splice(0, arrTemporaryAble.length);
+    }
+
+    function Cleaner_arrTemporaryVal() {
+        arrTemporaryVal.splice(0, arrTemporaryVal.length);
+    }
 })
+// END Compiling.js
