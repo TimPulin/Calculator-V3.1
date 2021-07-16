@@ -1,3 +1,4 @@
+// ModalWorkV3.js
 //==================вызов и закрытие модального окна======================
 $(document).ready(function() {
     let Iam;
@@ -52,7 +53,7 @@ $(document).ready(function() {
         ID = '#'+Iam.attr('name');
         Hide_CurrentHeadersSection();
         ToggleHeaderSection();
-        CheckClass();
+        CheckClass() == true ? ShowHeader() : addClassActiveTo_JS_ButtonModal();
     })
 
     function Hide_CurrentHeadersSection() {
@@ -64,14 +65,11 @@ $(document).ready(function() {
     }
 
     function CheckClass() {
-        if(!$(ID).hasClass('active')){
-            ShowHeader();
-        } else {
-            addClassActiveTo_JS_ButtonModal();
-        }
+        return !$(ID).hasClass('active') ? true : false;
     }
-    function addClassActiveTo_JS_ButtonModal(){
-        $(ID).find(".JS_ButtonModal").each(function(index){
+
+    function addClassActiveTo_JS_ButtonModal() {
+        $(ID).find(".JS_ButtonModal").each(function(index) {
             jQuery(this).removeClass('active activeColor');
             if(Val_Iam == jQuery(this).val() ){
                 jQuery(this).addClass('active activeColor');
@@ -100,7 +98,7 @@ $(document).ready(function() {
     $('.JS_Galka').click(function() {
         Iam = $(this);
         Iam.toggleClass('active activeColor');
-        Iam.parent().find('.JS_Galka').not(Iam).each(function(index){
+        Iam.parent().find('.JS_Galka').not(Iam).each(function() {
             jQuery(this).removeClass('active activeColor');
         })
     })
@@ -109,7 +107,6 @@ $(document).ready(function() {
 $(document).ready(function() {
     $('.JS_Level, .JS_Rotation').click(function() {
         $(this).addClass('active activeColor');
-
     })
 })
 //===============================КОНЕЦ поведение кнопок при выборе значения атрибута==========
@@ -128,11 +125,10 @@ $(document).ready(function(){
     })
 
     function AddRemove_Active(Iam) {
-        Iam.closest('.JS_Section').find('.JS_ButtonModal').each(function(index){
+        Iam.closest('.JS_Section').find('.JS_ButtonModal').each(function() {
             jQuery(this).removeClass('active activeColor');
         })
         Iam.addClass('active activeColor');
-        return;
     }
 }) //=====================КОНЕЦ работа кнопок на экране для выбора значения атрибута элемента====
 
@@ -180,6 +176,8 @@ $(document).ready(function () {
     $(document).ready(function(){
         let amount, //переменная используется для кнопок "добавить/удалить прыжок" и кнопки "Eu"
             Index_ActiveSection;
+        const BTN_AddJump = $('#ElementModal .JS_AddJump');
+        const BTN_RemoveJump = $('#ElementModal .JS_RemoveJump');
 
         //===блокировка/разблокировка кнопок "добавить прыжок" и "удалить прыжок"
         $(document).ready(function() {
@@ -191,18 +189,18 @@ $(document).ready(function () {
             $('#jumps .JS_ButtonModal:not(.JS_ButtonModal[value="A"])').click(function() {
                 CheckAmountLinesHide();
                 if(amount < 3){
-                    $('#ElementModal .JS_AddJump').prop('disabled', false);
+                    UnlockBTN_AddJump();
                 }
             })
-            $('#ElementModal .JS_RemoveJump').click(function () {
+            BTN_RemoveJump.click(function () {
                 Iam = $(this);
                 CheckAmountLinesHide();
                 if(amount < 3){
-                    $('#ElementModal .JS_AddJump').prop('disabled', false);
+                    UnlockBTN_AddJump();
                 }
             })
 
-            $('.JS_RemoveJump').click(function () {
+            BTN_RemoveJump.click(function () {
                 Iam = $(this);
                 CheckAmountLinesHide();
                 if(amount < 2){
@@ -210,20 +208,20 @@ $(document).ready(function () {
                 }
             })
 
-            $('#ElementModal .JS_AddJump').click(function () {
-               $(this).prop('disabled', true);
-                $('#ElementModal .JS_RemoveJump').prop('disabled', false);;
+            BTN_AddJump.click(function () {
+               LockBTN_AddJump();
+                BTN_RemoveJump.prop('disabled', false);
             })
 
              //блокировка/разблокировка кнопки "добавить прыжок" в зависимости от кнопки "A"
              BUTTON_A.click(function() {
-                 if(Index_ActiveSection == 1){
+                 if(Index_ActiveSection == 1) {
                      if(amount == 3) {
-                         $('#ElementModal .JS_RemoveJump').trigger('click');
+                         BTN_RemoveJump.trigger('click');
                      }
-                     $('#ElementModal .JS_AddJump').prop('disabled', true);
+                     LockBTN_AddJump();
                  }else {
-                     $('#ElementModal .JS_AddJump').prop('disabled', false);
+                     UnlockBTN_AddJump();
                 }
              }) //КОНЕЦ блокировка/разблокировка кнопки "добавить прыжок" в зависимости от кнопки "A"
 
@@ -231,6 +229,16 @@ $(document).ready(function () {
                 amount = $(Iam).closest('.JS_Section-Table').find('.JS_Section-El.active').length;
             }
         }) //===КОНЕЦ блокировка/разблокировка кнопок "добавить прыжок" и "удалить прыжок"
+
+        function UnlockBTN_AddJump() {
+            BTN_AddJump.prop('disabled', false);
+            BTN_AddJump.addClass('splash');
+        }
+
+        function LockBTN_AddJump() {
+            BTN_AddJump.prop('disabled', true);
+            BTN_AddJump.removeClass('splash');
+        }
 
         //====================блокировка/разблокировка кнопок   в секции "прыжки"===========
        $(document).ready(function() {
@@ -302,3 +310,4 @@ $(document).ready(function () {
         }) //====================КОНЕЦ блокировка/разблокировка кнопок в секции "прыжки"===========
     })
 }) //======================КОНЕЦ Блокировка/Разблокировка кнопок===================================
+// END ModalWorkV3.js
