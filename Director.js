@@ -1,3 +1,4 @@
+// Director.js
 //======================ГЛОБАЛЬНЫЕ служебные функции======================
 
 let ID,
@@ -164,3 +165,4 @@ function Reset_ElementObject(currentObject) {
             currentObject.goe = 0;
             currentObject.halfPartBonus = 1;
 }
+// END Director.js
