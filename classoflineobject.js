@@ -1,3 +1,4 @@
+// classoflineobject.js
 class Element {
 
     constructor(){
@@ -76,11 +77,7 @@ class ElementInModal extends Element {
     }
 
     MakeLinesInfo() {
-        if ( this.CheckValidName() ) {
-            this.SetLinesInfo();
-        } else {
-            this.ResetToZeroLinesInfo()
-        }
+        this.CheckValidName() == true ? this.SetLinesInfo() : this.ResetToZeroLinesInfo();
     }
 
     SetLinesInfo() {
@@ -97,11 +94,9 @@ class ElementInModal extends Element {
     ResetToZeroAllModalInfo() {
         this.linename = '';
         this.nameOfElement = '';
-        for(let i = 0; i <= 3; i++) {
-            this[`value${i+1}`] = 0;
-        }
-        for(let i = 0; i <= 3; i++) {
-            this[`name${i+1}`] = '';
+        for(let i = 1; i <= 3; i++) {
+            this[`value${i}`] = 0;
+            this[`name${i}`] = '';
         }
     }
 
@@ -125,3 +120,4 @@ let ProgramsElements = {
     Element12 : new Element(),
     ElementInModal1 : new ElementInModal()
 }
+// END classoflineobject.js
