@@ -1,4 +1,4 @@
-
+// ModalCalcV3-1.js
 $(document).ready(function() {
 
     let Iam,
@@ -47,7 +47,7 @@ $(document).ready(function() {
                 if (Val_ButtonModal == 'Eu'){
                     BUTTON_ROTATION.val(1);
                 }
-                else if(Val_ButtonModal == 'ChSq'){
+                else if(Val_ButtonModal == 'ChSq') {
                     BUTTON_STEPLEVEL.val(1);
                 }
             }
@@ -59,20 +59,20 @@ $(document).ready(function() {
     }) //=============================КОНЕЦ перенос информации с экрана выбора значения атрибута элемента
 
     $('#ElementModal .JS_Fly, #ElementModal .JS_ChangeLeg').click(function() {
-        Iam=$(this);
-        if(!$('#ElementModal .JS_Fly').hasClass('active') && !$('#ElementModal .JS_ChangeLeg').hasClass('active')){
+        Iam = $(this);
+        if(!$('#ElementModal .JS_Fly').hasClass('active') && !$('#ElementModal .JS_ChangeLeg').hasClass('active') ) {
             $('#ElementModal .JS_V').removeClass('active activeColor');
         }
         DirectorModal();
     })
 
     $('#ElementModal').find('.JS_V, .JS_Galka, .JS_Edge, .JS_RemoveJump').click(function() {
-        Iam=$(this);
+        Iam = $(this);
         DirectorModal();
     })
 
     $('#ElementModal .JS_RemoveJump').click(function() {
-        Iam=$(this).closest('.JS_Section-Table').find('.JS_Section-El.active:last .JS_Button:first');
+        Iam = $(this).closest('.JS_Section-Table').find('.JS_Section-El.active:last .JS_Button:first');
         GetCurrentLineAndIndex();
         currentLine.removeClass('active splash').addClass('hide');
         ProgramsElements.ElementInModal1.ResetToZeroLinesInfo();
@@ -111,7 +111,7 @@ $(document).ready(function() {
 
     function removeClass_Splash() {
         if (ProgramsElements.ElementInModal1.CheckValidName() ) {
-            currentLine.removeClass('splash'); 
+            currentLine.removeClass('splash');
         }
     }
 
@@ -125,5 +125,5 @@ $(document).ready(function() {
         $('#ElementModal .headeroutput-name').text(ProgramsElements.ElementInModal1.makeNameOfElement() );
         $('#ElementModal .headeroutput-scores').text(ProgramsElements.ElementInModal1.calcBaseValue().toFixed(2) );
     }
-
 })
+// END ModalCalcV3-1.js
