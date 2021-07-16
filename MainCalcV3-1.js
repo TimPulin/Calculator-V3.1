@@ -1,4 +1,5 @@
-$(document).ready(function(){
+// MainCalcV3-1.js
+$(document).ready(function() {
 
     let Iam,
         buttonX,
@@ -11,7 +12,7 @@ $(document).ready(function(){
         buttonGoe = $(this).closest('.JS_Section-El').find('.JS_Goe');
     })
 
-    $('#ElementModal .JS_Save').click(function(){
+    $('#ElementModal .JS_Save').click(function() {
         if(INDEX_ActiveTab == 2){
             buttonX.prop('disabled', false);
         }
@@ -82,3 +83,4 @@ $(document).ready(function(){
         $('#MainTable').find('.tableoutput-scores').text(CalcFullScores().toFixed(2) );
     }
 })
+// END MainCalcV3-1.js
