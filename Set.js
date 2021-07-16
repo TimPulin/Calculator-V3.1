@@ -11,7 +11,6 @@ $(document).ready(function() {
 
 
     function DirectorSetConfig() {
-        CheckAvailabilityInfo();
         if(CheckAvailabilityInfo() ) {
             SetActiveTab();
             SetLines();
@@ -19,6 +18,7 @@ $(document).ready(function() {
             SetOutputs();
         }
         else {
+            $('.JS_AddJump').removeClass('splash');
             SECTIONTABLES.each(function() {
                 $(this).find('.JS_Section-El:first').addClass('splash');
             })
@@ -27,12 +27,7 @@ $(document).ready(function() {
     }
 
     function CheckAvailabilityInfo() {
-        if(arrActiveTabs[keyOfElement] == undefined) {
-            return false;
-        }
-        else {
-            return true;
-        }
+        return arrActiveTabs[keyOfElement] == undefined ? false : true;
     }
 
     function SetActiveTab() {
